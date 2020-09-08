@@ -3,13 +3,13 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import userRegistration from '../../actionCreators/userActions';
+import userRegister from '../../actionCreators/userActions';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
-
+  const { userRegistration } = userRegister;
   const formik = useFormik({
     initialValues: { username: '', password: '', passwordConfirmation: '' },
     validationSchema: Yup.object({
@@ -29,7 +29,15 @@ const RegistrationForm = () => {
       ),
     }),
     onSubmit: values => {
-      dispatch(userRegistration(values.user));
+      const { username, password, passwordConfirmation } = values;
+      const userObj = {
+        user: {
+          username,
+          password,
+          passwordConfirmation,
+        },
+      };
+      dispatch(userRegistration(userObj));
     },
   });
 
@@ -46,6 +54,7 @@ const RegistrationForm = () => {
           >
             Username
             <Input
+              type="text"
               username={formik.values.username}
               id="username"
               value={formik.values.username}
@@ -60,6 +69,7 @@ const RegistrationForm = () => {
           >
             Password
             <Input
+              type="password"
               password={formik.values.password}
               id="password"
               value={formik.values.password}
@@ -74,6 +84,7 @@ const RegistrationForm = () => {
           >
             Password Confirmation
             <Input
+              type="password"
               passwordConfirmation={formik.values.passwordConfirmation}
               id="passwordConfirmation"
               value={formik.values.passwordConfirmation}

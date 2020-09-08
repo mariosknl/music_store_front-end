@@ -6,7 +6,7 @@ import fetchGuitars from '../actionCreators/guitarActions';
 const SearchInstruments = () => {
   const dispatch = useDispatch();
 
-  const Formik = useFormik({
+  const formik = useFormik({
     initialValues: { instruments: '' },
     onSubmit: values => {
       dispatch(fetchGuitars(values.instrument));
@@ -16,16 +16,16 @@ const SearchInstruments = () => {
   return (
     <>
       <div className="w-full">
-        <form onSubmit={Formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit}>
           <label htmlFor="instrument">
             <p>Instrument</p>
             <input
               type="text"
               id="instrument"
-              value={Formik.value}
+              value={formik.value}
               placeholder="Search..."
-              onChange={Formik.handleChange}
-              onBlur={Formik.handleBlur}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
             />
           </label>
           <button type="submit">Search</button>

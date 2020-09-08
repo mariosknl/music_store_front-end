@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = ({
-  placeholder, value, id, onChange, onBlur,
+  type, placeholder, value, id, onChange, onBlur,
 }) => (
   <input
-    type="text"
+    type={type}
     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
     id={id}
     value={value}
@@ -16,9 +16,10 @@ const Input = ({
 );
 
 Input.propTypes = {
+  type: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
 };

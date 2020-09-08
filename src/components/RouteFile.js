@@ -6,15 +6,9 @@ import RegistrationForm from './auth/RegistrationForm';
 
 const RouteFile = () => (
   <Switch>
-    <Route exact path="/">
-      <Homepage />
-    </Route>
-    <Route path="/instruments/search">
-      <App />
-    </Route>
-    <Route path="/signup">
-      <RegistrationForm />
-    </Route>
+    <Route exact path="/" component={Homepage} />
+    <Route path="/instruments/search" component={App} />
+    <Route path="/signup" component={RegistrationForm} />
   </Switch>
 );
 
