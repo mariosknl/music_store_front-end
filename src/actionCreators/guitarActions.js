@@ -3,11 +3,11 @@ import axios from 'axios';
 
 const fetchGuitars = createAsyncThunk('instruments/guitars', async () => {
   const options = {
-    method: 'post',
-    url: 'http://localhost:3000/instruments/create',
+    method: 'get',
+    url: 'http://localhost:3000/instruments/index',
   };
   const response = await axios(options);
-  return response.data;
+  return response.data.all_instrument;
 });
 
 export default fetchGuitars;

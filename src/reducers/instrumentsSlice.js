@@ -12,11 +12,13 @@ const guitarsSlice = createSlice({
     [fetchGuitars.pending]: state => {
       state.status = 'loading';
     },
-    [fetchGuitars.fulfilled]: state => {
+    [fetchGuitars.fulfilled]: (state, action) => {
       state.status = 'succeeded';
+      state.guitars = action.payload;
     },
-    [fetchGuitars.rejected]: state => {
+    [fetchGuitars.rejected]: (state, action) => {
       state.status = 'failed';
+      state.error = action.error.message;
     },
   },
 });
