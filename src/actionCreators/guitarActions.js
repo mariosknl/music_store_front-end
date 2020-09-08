@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const fetchGuitars = createAsyncThunk('instruments/guitars', async () => {
   const options = {
-    method: 'get',
+    method: 'GET',
     url: 'http://localhost:3000/instruments/index',
   };
   const response = await axios(options);

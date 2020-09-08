@@ -17,7 +17,7 @@ const RegistrationForm = () => {
         .min(5, 'Needs to be at least 5 characters')
         .required('Cannot be empty'),
       password: Yup.string()
-        .min(8, 'Needs to be at least 8 characters')
+        .min(8, 'Min value is 8 characters')
         .required('Please enter your password')
         .matches(
           /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
