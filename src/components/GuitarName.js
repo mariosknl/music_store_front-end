@@ -2,17 +2,18 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const GuitarName = () => {
-  const guitarState = useSelector(state => state.guitars);
-
+  const guitarState = useSelector(state => state.instruments.guitars);
   if (!guitarState) {
     return '';
   }
 
-  const { name } = guitarState.instrument.details;
-
   return (
     <>
-      <p className="text-blue-300 font-bold text">{name}</p>
+      {guitarState.map(guitar => (
+        <p key={guitar.instrument.details.id}>
+          {guitar.instrument.details.name}
+        </p>
+      ))}
     </>
   );
 };

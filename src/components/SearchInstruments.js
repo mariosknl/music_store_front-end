@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import fetchGuitars from '../actionCreators/guitarActions';
-import GuitarName from './GuitarName';
 
 const SearchInstruments = () => {
   const dispatch = useDispatch();
@@ -32,7 +31,7 @@ const SearchInstruments = () => {
           <button type="submit">Search</button>
         </form>
       </div>
-      <GuitarName />
+      {/* <GuitarName /> */}
     </>
   );
 };

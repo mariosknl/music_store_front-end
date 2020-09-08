@@ -14,7 +14,7 @@ const guitarsSlice = createSlice({
     },
     [fetchGuitars.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.guitars = action.payload;
+      state.guitars = [...action.payload];
     },
     [fetchGuitars.rejected]: (state, action) => {
       state.status = 'failed';
