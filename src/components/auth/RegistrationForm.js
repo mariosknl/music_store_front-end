@@ -42,14 +42,28 @@ const RegistrationForm = () => {
             className="block text-gray-700 text-sm font-bold mb-2"
           >
             Password
-            <Input password={formik.values.password} />
+            <Input
+              password={formik.values.password}
+              id="password"
+              value={formik.values.password}
+              placeholder="password"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
           </label>
           <label
             htmlFor="passwordConfirmation"
             className="block text-gray-700 text-sm font-bold mb-2"
           >
             Password Confirmation
-            <Input passwordConfirmation={formik.values.passwordConfirmation} />
+            <Input
+              passwordConfirmation={formik.values.passwordConfirmation}
+              id="passwordConfirmation"
+              value={formik.values.passwordConfirmation}
+              placeholder="Password Confirmation"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
           </label>
 
           <Button text="SignUp" />
