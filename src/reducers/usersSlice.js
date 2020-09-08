@@ -7,7 +7,7 @@ const usersSlice = createSlice({
   initialState: {
     username: '',
     password: '',
-    password_confirmation: '',
+    passwordConfirmation: '',
   },
   reducers: {},
   extraReducers: {
