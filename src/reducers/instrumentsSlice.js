@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import fetchGuitars from '../actionCreators/guitarActions';
 
 const guitarsSlice = createSlice({
-  name: 'guitars',
+  name: 'instruments',
   initialState: {
     guitars: [],
   },
