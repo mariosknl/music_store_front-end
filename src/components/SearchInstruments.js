@@ -31,7 +31,6 @@ const SearchInstruments = () => {
           <button type="submit">Search</button>
         </form>
       </div>
-      {/* <GuitarName /> */}
     </>
   );
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchInstruments from './components/SearchInstruments';
-import Homepage from './components/Homepage';
 
 function App() {
   return (

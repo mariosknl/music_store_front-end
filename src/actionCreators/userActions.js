@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const fetchGuitars = createAsyncThunk('instruments/guitars', async () => {
+const userRegistration = createAsyncThunk('users/registrations', async () => {
   const options = {
-    method: 'get',
-    url: 'http://localhost:3000/instruments/create',
+    method: 'post',
+    url: 'http://localhost:3000/registrations',
   };
   const response = await axios(options);
   return response.data;
 });
 
-export default { fetchGuitars };
+export default { userRegistration };
