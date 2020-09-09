@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import Navbar from './components/ui/Navbar';
 import RouteFile from './components/RouteFile';
 import curUser from './actionCreators/userActions';
+import fetchGuitars from './actionCreators/guitarActions';
 
 function App() {
   const dispatch = useDispatch();
@@ -11,7 +12,8 @@ function App() {
 
   useEffect(() => {
     dispatch(currentUser());
-  });
+    dispatch(fetchGuitars());
+  }, [dispatch, currentUser]);
   return (
     <div className="App">
       <Navbar />

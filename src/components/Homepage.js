@@ -1,21 +1,12 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import fetchGuitars from '../actionCreators/guitarActions';
-import GuitarName from './instruments/GuitarName';
-import InstrumentImage from './InstrumentImage';
+import React from 'react';
+import Guitar from './instruments/guitars/Guitar';
+import BassGuitar from './instruments/bass/BassGuitar';
 
-const Homepage = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchGuitars());
-  }, [dispatch]);
-
-  return (
-    <>
-      <GuitarName />
-      <InstrumentImage />
-    </>
-  );
-};
+const Homepage = () => (
+  <>
+    <Guitar />
+    <BassGuitar />
+  </>
+);
 
 export default Homepage;
