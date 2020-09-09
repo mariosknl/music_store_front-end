@@ -26,10 +26,10 @@ const usersSlice = createSlice({
     [currentUser.pending]: state => {
       state.status = 'loading';
     },
-    [currentUser.fulfilled]: (state, action) => {
-      state.status = 'succeeded';
-      state.users = action.payload;
-    },
+    [currentUser.fulfilled]: (state, action) => ({
+      username: action.payload.user.username,
+      status: 'fulfilled',
+    }),
     [currentUser.rejected]: (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
