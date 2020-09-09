@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from './Input';
+import Button from './Button';
 
-const Form = formik => {
-  const { username, password } = formik.values;
+const Form = ({ formik, signup }) => {
+  const { username, password, passwordConfirmation } = formik.values;
   const { handleSubmit, handleChange, handleBlur } = formik;
   return (
     <>
@@ -35,9 +37,30 @@ const Form = formik => {
             onBlur={handleBlur}
           />
         </label>
+
+        {signup ? (
+          <label htmlFor="passwordConfirmation">
+            <Input
+              type="password"
+              passwordConfirmation={passwordConfirmation}
+              id="passwordConfirmation"
+              value={passwordConfirmation}
+              placeholder="Password Confirmation"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+          </label>
+        ) : (
+          ''
+        )}
+        <Button text="Login" />
       </form>
     </>
   );
 };
 
+Form.propTypes = {
+  formik: PropTypes.string.isRequired,
+  signup: PropTypes.bool.isRequired,
+};
 export default Form;

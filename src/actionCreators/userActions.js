@@ -14,12 +14,13 @@ const userRegistration = createAsyncThunk('users/signup', async args => {
 
 const loginUser = createAsyncThunk('user/login', async args => {
   const options = {
-    method: 'GET',
-    url: 'http://localhost:3000/login',
+    method: 'POST',
+    url: 'http://localhost:3000/sessions',
     withCredentials: true,
     data: args,
   };
   const response = await axios(options);
+
   return response.data;
 });
 

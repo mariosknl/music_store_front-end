@@ -4,8 +4,8 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import userRegister from '../../actionCreators/userActions';
-import Input from '../ui/Input';
 import Button from '../ui/Button';
+import Form from '../ui/Form';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -44,58 +44,8 @@ const RegistrationForm = () => {
   return (
     <>
       <div className="w-full max-w-xs">
-        <form
-          onSubmit={formik.handleSubmit}
-          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-        >
-          <label
-            htmlFor="username"
-            className="block text-gray-700 text-sm font-bold mb-2"
-          >
-            Username
-            <Input
-              type="text"
-              username={formik.values.username}
-              id="username"
-              value={formik.values.username}
-              placeholder="username"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-          </label>
-          <label
-            htmlFor="password"
-            className="block text-gray-700 text-sm font-bold mb-2"
-          >
-            Password
-            <Input
-              type="password"
-              password={formik.values.password}
-              id="password"
-              value={formik.values.password}
-              placeholder="password"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-          </label>
-          <label
-            htmlFor="passwordConfirmation"
-            className="block text-gray-700 text-sm font-bold mb-2"
-          >
-            Password Confirmation
-            <Input
-              type="password"
-              passwordConfirmation={formik.values.passwordConfirmation}
-              id="passwordConfirmation"
-              value={formik.values.passwordConfirmation}
-              placeholder="Password Confirmation"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-          </label>
-
-          <Button text="SignUp" />
-        </form>
+        <Form formik={formik} signup />
+        <Button text="SignUp" />
       </div>
     </>
   );
