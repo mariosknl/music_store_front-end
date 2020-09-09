@@ -1,11 +1,21 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import userAction from '../actionCreators/userActions';
+import userActions from '../actionCreators/userActions';
 
-const { currentUser, userRegistration } = userAction;
+const { currentUser, userRegistration, logoutUser } = userActions;
+
+const defaultState = {
+  currentUser: '',
+  username: '',
+  password: '',
+  passwordConfirmation: '',
+};
+
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
+    currentUser: '',
     username: '',
     password: '',
     passwordConfirmation: '',
@@ -26,14 +36,19 @@ const usersSlice = createSlice({
     [currentUser.pending]: state => {
       state.status = 'loading';
     },
-    [currentUser.fulfilled]: (state, action) => ({
-      username: action.payload.user.username,
-      status: 'fulfilled',
-    }),
+    [currentUser.fulfilled]: (state, action) => {
+      if (action.payload.user) {
+        return {
+          currentUser: { user: action.payload.user },
+        };
+      }
+      state.status = 'fulfilled';
+    },
     [currentUser.rejected]: (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
     },
+    [logoutUser.fulfilled]: () => defaultState,
   },
 });
 

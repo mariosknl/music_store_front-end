@@ -4,10 +4,9 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logUser from '../../actionCreators/userActions';
-import Button from './Button';
 
 const Navbar = () => {
-  const username = useSelector(state => state.users.username);
+  const username = useSelector(state => state.users.currentUser.user);
   const dispatch = useDispatch();
   const { logoutUser } = logUser;
   return (
@@ -198,13 +197,15 @@ m885 -15 c0 -25 -76 -117 -132 -158 -71 -54 -138 -85 -148 -67 -13 20 -33 210
 
       <div>
         {username ? (
-          <Button
-            text="Logout"
+          <button
+            type="button"
             className="block text-gray-500 hover:text-white focus:text-white focus:outline-none"
             onClick={() => {
               dispatch(logoutUser());
             }}
-          />
+          >
+            logout
+          </button>
         ) : (
           ''
         )}

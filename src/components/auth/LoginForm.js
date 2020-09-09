@@ -38,7 +38,7 @@ const LoginForm = () => {
   return (
     <>
       <div className="w-full max-w-xs">
-        <Form formik={formik} text="Login" />
+        <Form formik={formik} text="Login" signup={false} />
       </div>
     </>
   );

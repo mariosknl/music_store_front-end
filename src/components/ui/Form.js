@@ -60,7 +60,7 @@ const Form = ({ formik, signup, text }) => {
 };
 
 Form.propTypes = {
-  formik: PropTypes.string.isRequired,
+  formik: PropTypes.oneOfType([PropTypes.string.isRequired]).isRequired,
   signup: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
 };
