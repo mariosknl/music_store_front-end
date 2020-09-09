@@ -7,10 +7,12 @@ import './tailwind.output.css';
 
 import store from './store/configureStore';
 import RouteFile from './components/RouteFile';
+import Navbar from './components/ui/Navbar';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <Navbar />
       <Router>
         <RouteFile />
       </Router>

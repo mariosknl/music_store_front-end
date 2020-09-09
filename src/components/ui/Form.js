@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import Button from './Button';
 
-const Form = ({ formik, signup }) => {
+const Form = ({ formik, signup, text }) => {
   const { username, password, passwordConfirmation } = formik.values;
   const { handleSubmit, handleChange, handleBlur } = formik;
   return (
@@ -53,7 +53,7 @@ const Form = ({ formik, signup }) => {
         ) : (
           ''
         )}
-        <Button text="Login" />
+        <Button text={text} />
       </form>
     </>
   );
@@ -62,5 +62,6 @@ const Form = ({ formik, signup }) => {
 Form.propTypes = {
   formik: PropTypes.string.isRequired,
   signup: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
 };
 export default Form;

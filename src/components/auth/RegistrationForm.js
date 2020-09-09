@@ -44,8 +44,7 @@ const RegistrationForm = () => {
   return (
     <>
       <div className="w-full max-w-xs">
-        <Form formik={formik} signup />
-        <Button text="SignUp" />
+        <Form formik={formik} signup text="Sign Up" />
       </div>
     </>
   );
