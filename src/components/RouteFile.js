@@ -9,6 +9,7 @@ const RouteFile = () => (
     <Route exact path="/" component={Homepage} />
     <Route path="/signup" component={RegistrationForm} />
     <Route path="/login" component={LoginForm} />
+    <Route render={() => <h1>404: Page not Found</h1>} />
   </Switch>
 );
 
