@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import fetchGuitars from '../actionCreators/guitarActions';
-import GuitarName from './GuitarName';
+import GuitarName from './instruments/GuitarName';
 import InstrumentImage from './InstrumentImage';
 
 const Homepage = () => {
