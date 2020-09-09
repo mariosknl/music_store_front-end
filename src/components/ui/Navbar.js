@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logUser from '../../actionCreators/userActions';
 import Button from './Button';
@@ -14,8 +16,8 @@ const Navbar = () => {
         <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
-          width="120px"
-          height="50px"
+          width="170px"
+          height="90px"
           viewBox="0 0 1280.000000 809.000000"
           preserveAspectRatio="xMidYMid meet"
         >
@@ -193,10 +195,12 @@ m885 -15 c0 -25 -76 -117 -132 -158 -71 -54 -138 -85 -148 -67 -13 20 -33 210
         </svg>
       </div>
       <div className="text-white font-bold text-2xl">eMusic Store</div>
+
       <div>
         {username ? (
           <Button
             text="Logout"
+            className="block text-gray-500 hover:text-white focus:text-white focus:outline-none"
             onClick={() => {
               dispatch(logoutUser());
             }}
@@ -205,26 +209,9 @@ m885 -15 c0 -25 -76 -117 -132 -158 -71 -54 -138 -85 -148 -67 -13 20 -33 210
           ''
         )}
       </div>
-      <button
-        type="button"
-        className="block text-gray-500 hover:text-white focus:text-white focus:outline-none"
-      >
-        <svg
-          fill="#000000"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 50 50"
-          width="50px"
-          height="50px"
-        >
-          <path
-            fill="none"
-            stroke="#e5e5e5"
-            strokeMiterlimit="10"
-            strokeWidth="5"
-            d="M50 25L0 25M50 10L0 10M0 40L50 40"
-          />
-        </svg>
-      </button>
+      <div>
+        <FontAwesomeIcon icon={faBars} color="white" />
+      </div>
     </header>
   );
 };
