@@ -1,7 +1,8 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import userRegistration from '../actionCreators/userActions';
+import userAction from '../actionCreators/userActions';
 
+const { currentUser, userRegistration } = userAction;
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
@@ -19,6 +20,17 @@ const usersSlice = createSlice({
       state.users = action.payload;
     },
     [userRegistration.rejected]: (state, action) => {
+      state.status = 'failed';
+      state.error = action.error.message;
+    },
+    [currentUser.pending]: state => {
+      state.status = 'loading';
+    },
+    [currentUser.fulfilled]: (state, action) => {
+      state.status = 'succeeded';
+      state.users = action.payload;
+    },
+    [currentUser.rejected]: (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
     },

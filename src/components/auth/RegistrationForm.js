@@ -4,7 +4,6 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import userRegister from '../../actionCreators/userActions';
-import Button from '../ui/Button';
 import Form from '../ui/Form';
 
 const RegistrationForm = () => {

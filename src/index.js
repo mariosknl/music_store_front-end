@@ -6,15 +6,13 @@ import './index.css';
 import './tailwind.output.css';
 
 import store from './store/configureStore';
-import RouteFile from './components/RouteFile';
-import Navbar from './components/ui/Navbar';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Navbar />
       <Router>
-        <RouteFile />
+        <App />
       </Router>
     </Provider>
   </React.StrictMode>,

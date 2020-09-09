@@ -35,4 +35,19 @@ const logoutUser = createAsyncThunk('user/logout', async () => {
   return '';
 });
 
-export default { userRegistration, loginUser, logoutUser };
+const currentUser = createAsyncThunk('user/logged_in', async () => {
+  const options = {
+    method: 'GET',
+    url: 'http://localhost:3000/logged_in',
+    withCredentials: true,
+  };
+  const response = await axios(options);
+  return response.data;
+});
+
+export default {
+  userRegistration,
+  loginUser,
+  logoutUser,
+  currentUser,
+};
