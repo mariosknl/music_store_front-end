@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
-import fetchGuitars from '../actionCreators/guitarActions';
+import fetchInstruments from '../actionCreators/instrumentActions';
 
 const SearchInstruments = () => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const SearchInstruments = () => {
   const formik = useFormik({
     initialValues: { instruments: '' },
     onSubmit: values => {
-      dispatch(fetchGuitars(values.instrument));
+      dispatch(fetchInstruments(values.instrument));
     },
   });
 

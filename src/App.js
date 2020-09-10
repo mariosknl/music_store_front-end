@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Navbar from './components/ui/Navbar';
 import RouteFile from './components/RouteFile';
 import curUser from './actionCreators/userActions';
-import fetchGuitars from './actionCreators/guitarActions';
+import fetchInstruments from './actionCreators/instrumentActions';
 
 function App() {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     dispatch(currentUser());
-    dispatch(fetchGuitars());
+    dispatch(fetchInstruments());
   }, [dispatch, currentUser]);
   return (
     <div className="App">

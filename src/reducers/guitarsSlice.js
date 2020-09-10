@@ -1,22 +1,22 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import fetchInstruments from '../actionCreators/instrumentActions';
+import fetchGuitars from '../actionCreators/guitarActions';
 
 const instrumentsSlice = createSlice({
-  name: 'instruments',
+  name: 'guitars',
   initialState: {
-    instruments: [],
+    guitars: [],
   },
   reducers: {},
   extraReducers: {
-    [fetchInstruments.pending]: state => {
+    [fetchGuitars.pending]: state => {
       state.status = 'loading';
     },
-    [fetchInstruments.fulfilled]: (state, action) => {
+    [fetchGuitars.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.instruments = [...action.payload];
+      state.guitars = [...action.payload];
     },
-    [fetchInstruments.rejected]: (state, action) => {
+    [fetchGuitars.rejected]: (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
     },
