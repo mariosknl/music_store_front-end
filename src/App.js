@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 
 import Navbar from './components/ui/Navbar';
 import RouteFile from './components/RouteFile';
-import curUser from './actionCreators/userActions';
 
+import curUser from './actionCreators/userActions';
 import fetchInstruments from './actionCreators/instrumentActions';
 import fetchBassGuitars from './actionCreators/bassGuitarActions';
 import fetchGuitars from './actionCreators/guitarActions';
