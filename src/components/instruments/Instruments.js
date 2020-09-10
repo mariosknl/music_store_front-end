@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Instruments = () => {
   const instrumentsState = useSelector(state => state.instruments.instruments);
-  if (!instrumentsState) {
+  if (instrumentsState.lenght === 0) {
     return '';
   }
 
@@ -14,9 +14,8 @@ const Instruments = () => {
         <React.Fragment key={uuidv4()}>
           <p key={uuidv4()}>{instrument.instrument.details.name}</p>
           <img
-            key={uuidv4()}
             src={`${instrument.instrument.details.image_url}`}
-            alt={`${instrument.instrument.details.name}`}
+            alt={instrument.instrument.details.name}
           />
         </React.Fragment>
       ))}
