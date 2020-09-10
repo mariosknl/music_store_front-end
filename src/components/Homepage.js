@@ -1,11 +1,9 @@
 import React from 'react';
-import Guitar from './instruments/guitars/Guitar';
-// import BassGuitar from './instruments/bass/BassGuitar';
+import Instruments from './instruments/Instruments';
 
 const Homepage = () => (
   <>
-    <Guitar />
-    {/* <BassGuitar /> */}
+    <Instruments />
   </>
 );
 
