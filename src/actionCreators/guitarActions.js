@@ -7,7 +7,7 @@ const fetchGuitars = createAsyncThunk('instruments/guitars', async () => {
     url: 'http://localhost:3000/instruments/guitars',
   };
   const response = await axios(options);
-  return response.data;
+  return response.data.guitars;
 });
 
 export default fetchGuitars;

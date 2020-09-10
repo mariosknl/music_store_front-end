@@ -7,7 +7,7 @@ const fetchSnares = createAsyncThunk('instruments/snares', async () => {
     url: 'http://localhost:3000/instruments/snares',
   };
   const response = await axios(options);
-  return response.data.all_instrument;
+  return response.data.snares;
 });
 
 export default fetchSnares;

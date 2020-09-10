@@ -9,7 +9,7 @@ const fetchBassGuitars = createAsyncThunk(
       url: 'http://localhost:3000/instruments/bass_guitars',
     };
     const response = await axios(options);
-    return response.data;
+    return response.data.bass_guitars;
   },
 );
 

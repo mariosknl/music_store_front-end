@@ -9,7 +9,7 @@ const fetchCymbals = createAsyncThunk(
       url: 'http://localhost:3000/instruments/cymbals',
     };
     const response = await axios(options);
-    return response.data.all_instrument;
+    return response.data.cymbals;
   },
 );
 

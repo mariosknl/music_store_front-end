@@ -7,7 +7,7 @@ const fetchDrumkits = createAsyncThunk('instruments/drumkits', async () => {
     url: 'http://localhost:3000/instruments/drumkits',
   };
   const response = await axios(options);
-  return response.data.all_instrument;
+  return response.data.drumkits;
 });
 
 export default fetchDrumkits;
