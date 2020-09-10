@@ -4,6 +4,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import logUser from '../../actionCreators/userActions';
+import '../../styles/Navbar.css';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -32,14 +33,14 @@ const Navbar = () => {
 
   return (
     <IconContext.Provider value={{ color: '#fff' }}>
-      <nav className=" flex items-center justify-between px-4 py-3 bg-gray-900">
-        <div>
-          <Link to="/" onClick={closeMobileMenu}>
+      <nav className="navbar">
+        <div className="navbar-container container">
+          <Link to="/" onClick={closeMobileMenu} className="navbar-logo">
             <svg
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
-              width="170px"
-              height="90px"
+              width="100px"
+              height="50px"
               viewBox="0 0 1280.000000 809.000000"
               preserveAspectRatio="xMidYMid meet"
             >
@@ -217,34 +218,39 @@ m885 -15 c0 -25 -76 -117 -132 -158 -71 -54 -138 -85 -148 -67 -13 20 -33 210
             </svg>
           </Link>
         </div>
-        <div className="text-white font-bold text-2xl">eMusic Store</div>
-        <ul className={click ? 'active' : 'none'}>
-          <li>
+        <div className="nav-item">eMusic Store</div>
+        <div className="menu-icon">
+          <button onClick={handleClick} type="button">
+            {click ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className="nav-item">
             <Link to="/" onClick={closeMobileMenu}>
               Homepage
             </Link>
           </li>
-          <li className={click ? 'active' : 'none'}>
+          <li className="nav-item">
             <Link to="/guitars" onClick={closeMobileMenu}>
               Guitars
             </Link>
           </li>
-          <li className={click ? 'active' : 'none'}>
+          <li className="nav-item">
             <Link to="/bass_guitars" onClick={closeMobileMenu}>
               Bass Guitars
             </Link>
           </li>
-          <li className={click ? 'active' : 'none'}>
+          <li className="nav-item">
             <Link to="/drumkits" onClick={closeMobileMenu}>
               Drumkits
             </Link>
           </li>
-          <li className={click ? 'active' : 'none'}>
+          <li className="nav-item">
             <Link to="/snares" onClick={closeMobileMenu}>
               Snares
             </Link>
           </li>
-          <li className={click ? 'active' : 'none'}>
+          <li className="nav-item">
             <Link to="/cymbals" onClick={closeMobileMenu}>
               Cymbals
             </Link>
@@ -268,9 +274,8 @@ m885 -15 c0 -25 -76 -117 -132 -158 -71 -54 -138 -85 -148 -67 -13 20 -33 210
           ) : (
             ''
           )}
-          ;
         </ul>
-        <li>
+        {/* <li>
           {button ? (
             <button onClick={handleClick} type="button">
               {click ? <FaTimes color="white" /> : <FaBars color="white" />}
@@ -278,7 +283,7 @@ m885 -15 c0 -25 -76 -117 -132 -158 -71 -54 -138 -85 -148 -67 -13 20 -33 210
           ) : (
             ''
           )}
-        </li>
+        </li> */}
       </nav>
     </IconContext.Provider>
   );
