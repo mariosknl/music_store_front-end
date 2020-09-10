@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import fetchCymbals from '../actionCreators/cymbalActions';
 
-const snaresSlice = createSlice({
+const cymbalsSlice = createSlice({
   name: 'cymbals',
   initialState: {
     cymbals: [],
@@ -23,4 +23,4 @@ const snaresSlice = createSlice({
   },
 });
 
-export default snaresSlice.reducer;
+export default cymbalsSlice.reducer;

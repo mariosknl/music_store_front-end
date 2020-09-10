@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import fetchGuitars from '../actionCreators/guitarActions';
 
-const instrumentsSlice = createSlice({
+const guitarsSlice = createSlice({
   name: 'guitars',
   initialState: {
     guitars: [],
@@ -23,4 +23,4 @@ const instrumentsSlice = createSlice({
   },
 });
 
-export default instrumentsSlice.reducer;
+export default guitarsSlice.reducer;
