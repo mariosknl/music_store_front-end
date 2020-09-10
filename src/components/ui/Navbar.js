@@ -1,32 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { IconContext } from 'react-icons/lib';
 import logUser from '../../actionCreators/userActions';
 
 const Navbar = () => {
+  const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
+
   const username = useSelector(state => state.users.currentUser.user);
   const dispatch = useDispatch();
   const { logoutUser } = logUser;
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+
+  useEffect(() => {
+    showButton();
+  }, []);
+
+  window.addEventListener('resize', showButton);
+
   return (
-    <header className=" flex items-center justify-between px-4 py-3 bg-gray-900">
-      <div>
-        <svg
-          version="1.0"
-          xmlns="http://www.w3.org/2000/svg"
-          width="170px"
-          height="90px"
-          viewBox="0 0 1280.000000 809.000000"
-          preserveAspectRatio="xMidYMid meet"
-        >
-          <g
-            transform="translate(0.000000,809.000000) scale(0.100000,-0.100000)"
-            fill="#ffffff"
-            stroke="none"
-          >
-            <path
-              d="M11108 7644 l-28 -15 0 -657 c0 -361 -4 -662 -8 -669 -4 -7 -82 -24
+    <IconContext.Provider value={{ color: '#fff' }}>
+      <nav className=" flex items-center justify-between px-4 py-3 bg-gray-900">
+        <div>
+          <Link to="/" onClick={closeMobileMenu}>
+            <svg
+              version="1.0"
+              xmlns="http://www.w3.org/2000/svg"
+              width="170px"
+              height="90px"
+              viewBox="0 0 1280.000000 809.000000"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <g
+                transform="translate(0.000000,809.000000) scale(0.100000,-0.100000)"
+                fill="#ffffff"
+                stroke="none"
+              >
+                <path
+                  d="M11108 7644 l-28 -15 0 -657 c0 -361 -4 -662 -8 -669 -4 -7 -82 -24
 -172 -38 -496 -77 -988 -200 -1547 -387 -150 -50 -279 -88 -288 -85 -13 6 -15
 69 -15 532 0 523 0 525 -20 525 -12 0 -34 -7 -50 -15 l-30 -15 -2 -542 -3
 -541 -215 -86 c-575 -232 -1192 -529 -1798 -865 -95 -53 -179 -96 -186 -96
@@ -185,35 +208,79 @@ c-17 34 -18 43 -7 50 7 5 80 8 163 6 l149 -2 8 -35z m-437 -109 c63 -1 79 -5
 14 -436 84 -73 38 -235 186 -235 215 0 22 10 23 108 15 48 -3 119 -7 157 -7z
 m885 -15 c0 -25 -76 -117 -132 -158 -71 -54 -138 -85 -148 -67 -13 20 -33 210
 -24 219 9 9 77 14 227 18 60 2 77 -1 77 -12z"
-            />
-            <path
-              d="M1011 3164 c-24 -31 -25 -39 -10 -83 20 -57 92 -71 128 -25 35 45 24
+                />
+                <path
+                  d="M1011 3164 c-24 -31 -25 -39 -10 -83 20 -57 92 -71 128 -25 35 45 24
 92 -29 119 -42 22 -66 19 -89 -11z"
-            />
-          </g>
-        </svg>
-      </div>
-      <div className="text-white font-bold text-2xl">eMusic Store</div>
-
-      <div>
-        {username ? (
-          <button
-            type="button"
-            className="block text-gray-500 hover:text-white focus:text-white focus:outline-none"
-            onClick={() => {
-              dispatch(logoutUser());
-            }}
-          >
-            logout
-          </button>
-        ) : (
-          ''
-        )}
-      </div>
-      <div>
-        <FontAwesomeIcon icon={faBars} color="white" />
-      </div>
-    </header>
+                />
+              </g>
+            </svg>
+          </Link>
+        </div>
+        <div className="text-white font-bold text-2xl">eMusic Store</div>
+        <ul className={click ? 'active' : 'none'}>
+          <li>
+            <Link to="/" onClick={closeMobileMenu}>
+              Homepage
+            </Link>
+          </li>
+          <li className={click ? 'active' : 'none'}>
+            <Link to="/guitars" onClick={closeMobileMenu}>
+              Guitars
+            </Link>
+          </li>
+          <li className={click ? 'active' : 'none'}>
+            <Link to="/bass_guitars" onClick={closeMobileMenu}>
+              Bass Guitars
+            </Link>
+          </li>
+          <li className={click ? 'active' : 'none'}>
+            <Link to="/drumkits" onClick={closeMobileMenu}>
+              Drumkits
+            </Link>
+          </li>
+          <li className={click ? 'active' : 'none'}>
+            <Link to="/snares" onClick={closeMobileMenu}>
+              Snares
+            </Link>
+          </li>
+          <li className={click ? 'active' : 'none'}>
+            <Link to="/cymbals" onClick={closeMobileMenu}>
+              Cymbals
+            </Link>
+          </li>
+          {username ? (
+            <li>
+              <button
+                type="button"
+                className="block text-gray-500 hover:text-white focus:text-white focus:outline-none"
+                onClick={() => {
+                  dispatch(logoutUser());
+                }}
+                onKeyUp={() => {
+                  dispatch(logoutUser());
+                }}
+                tabIndex={0}
+              >
+                logout
+              </button>
+            </li>
+          ) : (
+            ''
+          )}
+          ;
+        </ul>
+        <li>
+          {button ? (
+            <button onClick={handleClick} type="button">
+              {click ? <FaTimes color="white" /> : <FaBars color="white" />}
+            </button>
+          ) : (
+            ''
+          )}
+        </li>
+      </nav>
+    </IconContext.Provider>
   );
 };
 
