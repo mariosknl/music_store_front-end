@@ -1,9 +1,10 @@
 import React from 'react';
-import Instruments from './instruments/Instruments';
+import InstrumentInfo from './instruments/InstrumentInfo';
 
 const Homepage = () => (
   <>
-    <Instruments />
+    <InstrumentInfo name="guitars" name2="guitar" />
+    <InstrumentInfo name="bassGuitars" name2="bass" />
   </>
 );
 

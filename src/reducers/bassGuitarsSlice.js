@@ -3,9 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import fetchBassGuitars from '../actionCreators/bassGuitarActions';
 
 const bassGuitarsSlice = createSlice({
-  name: 'bass_guitars',
+  name: 'bassGuitars',
   initialState: {
-    bass_guitars: [],
+    bassGuitars: [],
   },
   reducers: {},
   extraReducers: {
@@ -14,7 +14,7 @@ const bassGuitarsSlice = createSlice({
     },
     [fetchBassGuitars.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.bass_guitars = [...action.payload];
+      state.bassGuitars = [...action.payload];
     },
     [fetchBassGuitars.rejected]: (state, action) => {
       state.status = 'failed';
