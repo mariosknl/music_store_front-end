@@ -11,6 +11,7 @@ const Navbar = () => {
   const [button, setButton] = useState(true);
 
   const username = useSelector(state => state.users.currentUser.user);
+  const list = useSelector(state => state.list.list);
   const dispatch = useDispatch();
   const { logoutUser } = logUser;
 
@@ -230,31 +231,13 @@ m885 -15 c0 -25 -76 -117 -132 -158 -71 -54 -138 -85 -148 -67 -13 20 -33 210
               Homepage
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to="/instruments/guitars" onClick={closeMobileMenu}>
-              Guitars
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/instruments/bassGuitars" onClick={closeMobileMenu}>
-              Bass Guitars
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/instruments/drumkits" onClick={closeMobileMenu}>
-              Drumkits
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/instruments/snares" onClick={closeMobileMenu}>
-              Snares
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/instruments/cymbals" onClick={closeMobileMenu}>
-              Cymbals
-            </Link>
-          </li>
+          {list.map(item => (
+            <li className="nav-item" key={item}>
+              <Link to={`/instruments/${item}`} onClick={closeMobileMenu}>
+                {item}
+              </Link>
+            </li>
+          ))}
           {username ? (
             <li>
               <button
