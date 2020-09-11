@@ -231,27 +231,27 @@ m885 -15 c0 -25 -76 -117 -132 -158 -71 -54 -138 -85 -148 -67 -13 20 -33 210
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/guitars" onClick={closeMobileMenu}>
+            <Link to="/instruments/guitars" onClick={closeMobileMenu}>
               Guitars
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/bass_guitars" onClick={closeMobileMenu}>
+            <Link to="/instruments/bassGuitars" onClick={closeMobileMenu}>
               Bass Guitars
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/drumkits" onClick={closeMobileMenu}>
+            <Link to="/instruments/drumkits" onClick={closeMobileMenu}>
               Drumkits
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/snares" onClick={closeMobileMenu}>
+            <Link to="/instruments/snares" onClick={closeMobileMenu}>
               Snares
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/cymbals" onClick={closeMobileMenu}>
+            <Link to="/instruments/cymbals" onClick={closeMobileMenu}>
               Cymbals
             </Link>
           </li>

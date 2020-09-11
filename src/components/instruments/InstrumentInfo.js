@@ -2,6 +2,7 @@
 /* eslint-disable function-paren-newline */
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 
 function InstrumentInfo({ name }) {
@@ -11,32 +12,30 @@ function InstrumentInfo({ name }) {
     <>
       {instrument[name].map(ins =>
         Object.keys(ins[name]).map(key => (
-          <>
-            <p>
-              {key === 'name' ? <p>{ins[name].name}</p> : ''}
-              {key === 'strings' ? (
-                <p>
-                  String:
-                  {ins[name].strings}
-                </p>
-              ) : (
-                ''
-              )}
-              {key === 'pickups' ? (
-                <p>
-                  Pickups:
-                  {ins[name].pickups}
-                </p>
-              ) : (
-                ''
-              )}
-            </p>
-            {key === 'image_url' ? (
-              <img src={ins[name].image_url} alt="" />
+          <React.Fragment key={uuidv4()}>
+            {key === 'name' ? <p key={uuidv4()}>{ins[name].name}</p> : ''}
+            {key === 'strings' ? (
+              <p key={uuidv4()}>
+                String:
+                {ins[name].strings}
+              </p>
             ) : (
               ''
             )}
-          </>
+            {key === 'pickups' ? (
+              <span key={uuidv4()}>
+                Pickups:
+                {ins[name].pickups}
+              </span>
+            ) : (
+              ''
+            )}
+            {key === 'image_url' ? (
+              <img key={uuidv4()} src={ins[name].image_url} alt="" />
+            ) : (
+              ''
+            )}
+          </React.Fragment>
         )),
       )}
     </>

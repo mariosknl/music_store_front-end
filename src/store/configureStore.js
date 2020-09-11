@@ -6,6 +6,7 @@ import bassGuitarsReducer from '../reducers/bassGuitarsSlice';
 import drumkitReducer from '../reducers/drumkitSlice';
 import snaresReducer from '../reducers/snaresSlice';
 import cymbalsReducer from '../reducers/cymbalsSlice';
+import listReducer from '../reducers/filterSlice';
 
 export default configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export default configureStore({
     drumkits: drumkitReducer,
     snares: snaresReducer,
     cymbals: cymbalsReducer,
+    list: listReducer,
   },
 });
