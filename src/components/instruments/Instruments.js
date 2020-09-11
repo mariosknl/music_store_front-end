@@ -12,11 +12,11 @@ const Instruments = () => {
     <>
       {instrumentsState.map(instrument => (
         <React.Fragment key={uuidv4()}>
-          <p key={uuidv4()}>{instrument.instrumentable_type}</p>
-          {/* <img
+          <p key={uuidv4()}>{instrument.details.name}</p>
+          <img
             src={`${instrument.details.image_url}`}
             alt={instrument.details.name}
-          /> */}
+          />
         </React.Fragment>
       ))}
     </>
