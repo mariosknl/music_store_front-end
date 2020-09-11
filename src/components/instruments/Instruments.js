@@ -9,17 +9,25 @@ const Instruments = () => {
   }
 
   return (
-    <>
+    <div className="w-full sm:w-1/2 md:w-1/3 flex flex-col p-3">
       {instrumentsState.map(instrument => (
-        <React.Fragment key={uuidv4()}>
-          <p key={uuidv4()}>{instrument.details.name}</p>
+        <div
+          className="bg-white rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col mb-2"
+          key={uuidv4()}
+        >
           <img
             src={`${instrument.details.image_url}`}
+            className="bg-cover border-2 h-48"
             alt={instrument.details.name}
           />
-        </React.Fragment>
+          <div className="p-4 flex-1 flex flex-col">
+            <p key={uuidv4()} className="mb-4 text-grey-darker text-sm flex-1">
+              {instrument.details.name}
+            </p>
+          </div>
+        </div>
       ))}
-    </>
+    </div>
   );
 };
 
