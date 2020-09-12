@@ -17,7 +17,7 @@ const Instruments = () => {
         >
           <img
             src={`${instrument.details.image_url}`}
-            className="bg-cover border-2 h-48"
+            className="bg-cover h-48"
             alt={instrument.details.name}
           />
           <div className="p-4 flex-1 flex flex-col">
