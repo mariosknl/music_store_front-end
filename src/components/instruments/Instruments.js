@@ -9,21 +9,22 @@ const Instruments = () => {
   }
 
   return (
-    <div className="w-full sm:w-1/2 md:w-1/3 flex flex-col p-3">
+    <div className="flex flex-wrap p-6 rounded-lg shadow-xl">
       {instrumentsState.map(instrument => (
-        <div
-          className="bg-white rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col mb-2"
-          key={uuidv4()}
-        >
-          <img
-            src={`${instrument.details.image_url}`}
-            className="bg-cover h-48"
-            alt={instrument.details.name}
-          />
-          <div className="p-4 flex-1 flex flex-col">
-            <p key={uuidv4()} className="mb-4 text-grey-darker text-sm flex-1">
-              {instrument.details.name}
-            </p>
+        <div className="flex m-4 mx-auto rounded-lg h-56" key={uuidv4()}>
+          <div className="max-w-sm flex p-6 bg-white rounded-lg shadow-xl">
+            <div className="lg:items-center">
+              <img
+                src={`${instrument.details.image_url}`}
+                className="block h-32 w-full rounded-md"
+                alt={instrument.details.name}
+              />
+              <div className="mt-6 font-bold text-center shadow-lg rounded-lg bg-gray-400">
+                <p key={uuidv4()} className="">
+                  {instrument.details.name}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       ))}
