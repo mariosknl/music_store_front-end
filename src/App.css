@@ -19,4 +19,5 @@ body {
   background: url(../src//assets/main.jpg);
   background-position: center;
   background-size: 100% 100%;
+  position: relative;
 }

@@ -13,6 +13,7 @@ const RouteFile = () => {
 
   return (
     <Switch>
+      {}
       <Route exact page="/" component={Homepage} />
       <Route exact path="/mainpage" component={MainPage} />
       <Route path="/signup" component={RegistrationForm} />
