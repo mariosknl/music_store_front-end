@@ -79,7 +79,7 @@ const Navbar = () => {
             </motion.svg>
           </Link>
         </div>
-        <div className="h-4 w-full text-4xl font-bold md:pl-16 md:text-3xl text-white flex items-center">
+        <div className="h-4 w-full xl:text-4xl font-bold md:pl-16 md:text-3xl sm:text-base text-white flex items-center">
           eMusic Store
         </div>
         <div className="menu-icon">
@@ -88,14 +88,14 @@ const Navbar = () => {
           </button>
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className="nav-item text-white font-bold uppercase flex items-center ml-2">
+          <li className="nav-item text-white font-bold uppercase flex justify-center items-center ml-2">
             <Link to="/" onClick={closeMobileMenu}>
               Homepage
             </Link>
           </li>
           {list.map(item => (
             <li
-              className="nav-item font-bold uppercase text-white flex items-center ml-2"
+              className="nav-item font-bold uppercase text-white mx-auto justify-center flex items-center ml-2"
               key={item}>
               <Link to={`/instruments/${item}`} onClick={closeMobileMenu}>
                 {item}
