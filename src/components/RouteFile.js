@@ -1,17 +1,20 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Homepage from './Homepage';
+import { useSelector } from 'react-redux';
+import MainPage from './MainPage';
 import RegistrationForm from './auth/RegistrationForm';
 import LoginForm from './auth/LoginForm';
+import Homepage from './Homepage';
 import InstrumentInfo from './instruments/InstrumentInfo';
 
 const RouteFile = () => {
-  const list = ['bassGuitars', 'guitars', 'drumkits', 'snares', 'cymbals'];
+  const list = useSelector(state => state.list.list);
 
   return (
     <Switch>
-      <Route exact path="/" component={Homepage} />
+      <Route exact page="/" component={Homepage} />
+      <Route exact path="/mainpage" component={MainPage} />
       <Route path="/signup" component={RegistrationForm} />
       <Route path="/login" component={LoginForm} />
       {list.map(instrument => (

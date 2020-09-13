@@ -1,10 +1,6 @@
 import React from 'react';
-import Instruments from './instruments/Instruments';
+// import { useSelector } from 'react-redux';
 
-const Homepage = () => (
-  <>
-    <Instruments />
-  </>
-);
+const Homepage = () => <div>Welcome to our store!</div>;
 
 export default Homepage;

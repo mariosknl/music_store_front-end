@@ -9,14 +9,36 @@ function InstrumentInfo({ name }) {
   const instrument = useSelector(state => state[name]);
 
   return (
-    <>
+    <div className="w-full mx-auto mt-4 font-bold">
       {instrument[name].map(ins =>
         Object.keys(ins[name]).map(key => (
-          <React.Fragment key={uuidv4()}>
-            {key === 'name' ? <p key={uuidv4()}>{ins[name].name}</p> : ''}
+          <div
+            key={uuidv4()}
+            className="w-3/4 overflow-hidden mx-auto text-center"
+          >
+            {key === 'image_url' ? (
+              <img
+                key={uuidv4()}
+                src={ins[name].image_url}
+                className="w-full my-4 rounded bg-white"
+                alt=""
+              />
+            ) : (
+              ''
+            )}
+            {key === 'name' ? (
+              <p
+                key={uuidv4()}
+                className="mt-4 lg:text-3xl md:text-2xl underline"
+              >
+                {ins[name].name}
+              </p>
+            ) : (
+              ''
+            )}
             {key === 'strings' ? (
               <p key={uuidv4()}>
-                String:
+                Strings:
                 {ins[name].strings}
               </p>
             ) : (
@@ -30,15 +52,10 @@ function InstrumentInfo({ name }) {
             ) : (
               ''
             )}
-            {key === 'image_url' ? (
-              <img key={uuidv4()} src={ins[name].image_url} alt="" />
-            ) : (
-              ''
-            )}
-          </React.Fragment>
+          </div>
         )),
       )}
-    </>
+    </div>
   );
 }
 
