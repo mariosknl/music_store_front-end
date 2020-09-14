@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      {!currentUser ? <Navbar /> : ''}
+      {currentUser.length !== 0 ? <Navbar /> : ''}
       <RouteFile />
     </div>
   );

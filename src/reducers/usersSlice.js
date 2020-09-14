@@ -3,7 +3,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import userActions from '../actionCreators/userActions';
 
-const { currentUser, userRegistration, logoutUser } = userActions;
+const { currentUser, userRegistration, logoutUser, loginUser } = userActions;
 
 const defaultState = {
   currentUser: '',
@@ -39,7 +39,15 @@ const usersSlice = createSlice({
     [currentUser.fulfilled]: (state, action) => {
       if (action.payload.user) {
         return {
-          currentUser: { user: action.payload.user },
+          currentUser: { ...action.payload.user },
+        };
+      }
+      state.status = 'fulfilled';
+    },
+    [loginUser.fulfilled]: (state, action) => {
+      if (action.payload.user) {
+        return {
+          currentUser: { ...action.payload },
         };
       }
       state.status = 'fulfilled';
