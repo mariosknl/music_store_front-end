@@ -12,7 +12,6 @@ import fetchGuitars from './actionCreators/guitarActions';
 import fetchDrumkits from './actionCreators/drumkitActions';
 import fetchSnares from './actionCreators/snareActions';
 import fetchCymbals from './actionCreators/cymbalActions';
-import Homepage from './components/Homepage';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,14 +29,8 @@ function App() {
 
   return (
     <div className="App">
-      {currentUser.username ? (
-        <>
-          <Navbar />
-          <RouteFile />
-        </>
-      ) : (
-        <Homepage />
-      )}
+      {!currentUser ? <Navbar /> : ''}
+      <RouteFile />
     </div>
   );
 }

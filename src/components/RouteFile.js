@@ -13,15 +13,15 @@ const RouteFile = () => {
 
   return (
     <Switch>
-      <Route exact page="/" component={Homepage} />
-      <Route exact path="/mainpage" component={MainPage} />
+      <Route exact path="/login" component={LoginForm} />
+      <Route path="/mainpage" component={MainPage} />
       <Route path="/signup" component={RegistrationForm} />
-      <Route path="/login" component={LoginForm} />
       {list.map(instrument => (
         <Route key={instrument} path={`/instruments/${instrument}`}>
           <InstrumentInfo name={instrument} />
         </Route>
       ))}
+      <Route page="/" component={Homepage} />
       <Route render={() => <h1>404: Page not Found</h1>} />
     </Switch>
   );
