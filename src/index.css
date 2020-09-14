@@ -25,3 +25,11 @@ code {
     'Courier New',
     monospace;
 }
+
+/* progress bar styles */
+
+.progress-bar {
+  height: 5px;
+  background: white;
+  margin-top: 20px;
+}

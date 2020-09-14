@@ -11,18 +11,18 @@ const LoginForm = () => {
 
   const formik = useFormik({
     initialValues: { username: '', password: '' },
-    // validationSchema: Yup.object({
-    //   username: Yup.string()
-    //     .min(5, 'Needs to be at least 5 characters')
-    //     .required('Cannot be empty'),
-    //   password: Yup.string()
-    //     .min(8, 'Min value is 8 characters')
-    //     .required('Please enter your password')
-    //     .matches(
-    //       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
-    //       'Must contain 8 characters, One Uppercase, One Lowercase, One Number',
-    //     ),
-    // }),
+    validationSchema: Yup.object({
+      username: Yup.string()
+        .min(5, 'Needs to be at least 5 characters')
+        .required('Cannot be empty'),
+      password: Yup.string()
+        .min(8, 'Min value is 8 characters')
+        .required('Please enter your password')
+        .matches(
+          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+          'Must contain 8 characters, One Uppercase, One Lowercase, One Number',
+        ),
+    }),
     onSubmit: values => {
       const { username, password, isAdmin } = values;
       const userObj = {
