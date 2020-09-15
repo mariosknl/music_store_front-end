@@ -20,7 +20,7 @@ function InstrumentInfo({ name }) {
               <img
                 key={uuidv4()}
                 src={ins[name].image_url}
-                className="w-full my-4 rounded bg-white sm:h-32 md:h-48 lg:h-64"
+                className="w-full md:w-3/4 my-4 mx-auto rounded bg-white h-32 sm:h-32 md:h-48 lg:h-64"
                 alt=""
               />
             ) : (

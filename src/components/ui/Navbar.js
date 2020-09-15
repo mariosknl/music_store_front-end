@@ -11,6 +11,7 @@ import '../../styles/Navbar.css';
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const [login, setLogin] = useState(false);
 
   const username = useSelector(state => state.users.currentUser.user);
   const list = useSelector(state => state.list.list);
@@ -83,6 +84,7 @@ const Navbar = () => {
                 className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3"
                 onClick={() => {
                   dispatch(logoutUser());
+                  setLogin(false);
                 }}
                 onKeyUp={() => {
                   dispatch(logoutUser());
@@ -96,7 +98,8 @@ const Navbar = () => {
               <Link
                 to="/login"
                 className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
-                Login
+                {login}
+                login
               </Link>
             </li>
           )}
