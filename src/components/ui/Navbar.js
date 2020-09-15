@@ -11,7 +11,7 @@ import '../../styles/Navbar.css';
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
 
   const username = useSelector(state => state.users.currentUser.user);
   const list = useSelector(state => state.list.list);
@@ -77,7 +77,7 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-          {username ? (
+          {username && login ? (
             <li>
               <button
                 type="button"
@@ -98,8 +98,7 @@ const Navbar = () => {
               <Link
                 to="/login"
                 className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
-                {login}
-                login
+                Login
               </Link>
             </li>
           )}

@@ -30,9 +30,10 @@ function App() {
     dispatch(fetchCymbals());
   }, [dispatch, checkUser]);
 
-  if (!admin) {
-    return '';
-  }
+  // if (!admin) {
+  //   return '';
+  // }
+
   return (
     <div className="App">
       {admin.currentUser.isAdmin ? (
