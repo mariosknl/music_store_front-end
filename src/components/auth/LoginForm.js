@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+import { Redirect } from 'react-router-dom';
 import userLog from '../../actionCreators/userActions';
 import Form from '../ui/Form';
 
 const LoginForm = () => {
+  const [redirect, setRedirect] = useState(false);
   const dispatch = useDispatch();
   const { loginUser } = userLog;
 
@@ -33,11 +35,13 @@ const LoginForm = () => {
         },
       };
       dispatch(loginUser(userObj));
+      setRedirect(true);
     },
   });
 
   return (
     <>
+      {redirect ? <Redirect to="/mainpage" /> : ''}
       <div className="w-full max-w-xs">
         <Form formik={formik} text="Login" signup={false} />
       </div>

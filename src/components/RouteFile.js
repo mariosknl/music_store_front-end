@@ -7,7 +7,6 @@ import RegistrationForm from './auth/RegistrationForm';
 import LoginForm from './auth/LoginForm';
 import Homepage from './Homepage';
 import InstrumentInfo from './instruments/InstrumentInfo';
-import GuitarForm from './ui/forms/GuitarForm';
 
 const RouteFile = () => {
   const list = useSelector(state => state.list.list);
@@ -22,8 +21,7 @@ const RouteFile = () => {
           <InstrumentInfo name={instrument} />
         </Route>
       ))}
-      <Route exact path="/guitar_form" component={GuitarForm} />
-      <Route path="/" component={Homepage} />
+      <Route exact path="/" component={Homepage} />
       <Route render={() => <h1>404: Page not Found</h1>} />
     </Switch>
   );

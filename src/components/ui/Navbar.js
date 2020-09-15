@@ -80,7 +80,7 @@ const Navbar = () => {
             <li>
               <button
                 type="button"
-                className="block text-gray-500 hover:text-white focus:text-white focus:outline-none"
+                className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3"
                 onClick={() => {
                   dispatch(logoutUser());
                 }}
@@ -88,11 +88,17 @@ const Navbar = () => {
                   dispatch(logoutUser());
                 }}
                 tabIndex={0}>
-                logout
+                Logout
               </button>
             </li>
           ) : (
-            ''
+            <li>
+              <Link
+                to="/login"
+                className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
+                Login
+              </Link>
+            </li>
           )}
         </ul>
       </nav>

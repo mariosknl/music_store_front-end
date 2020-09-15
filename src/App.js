@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Navbar from './components/ui/Navbar';
 import RouteFile from './components/RouteFile';
+import AdminRoutes from './components/ui/forms/GuitarForm';
 import './App.css';
 
 import curUser from './actionCreators/userActions';
@@ -16,6 +17,7 @@ import fetchCymbals from './actionCreators/cymbalActions';
 function App() {
   const dispatch = useDispatch();
   const { checkUser } = curUser;
+  const admin = useSelector(state => state.users);
 
   useEffect(() => {
     dispatch(checkUser());
@@ -27,10 +29,14 @@ function App() {
     dispatch(fetchCymbals());
   }, [dispatch, checkUser]);
 
+  if (!admin) {
+    return '';
+  }
   return (
     <div className="App">
       <Navbar />
       <RouteFile />
+      {admin.currentUser.isAdmin ? <AdminRoutes /> : ''}
     </div>
   );
 }
