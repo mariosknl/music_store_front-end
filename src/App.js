@@ -15,21 +15,21 @@ import fetchCymbals from './actionCreators/cymbalActions';
 
 function App() {
   const dispatch = useDispatch();
-  const { currentUser } = curUser;
+  const { checkUser } = curUser;
 
   useEffect(() => {
-    dispatch(currentUser());
+    dispatch(checkUser());
     dispatch(fetchInstruments());
     dispatch(fetchGuitars());
     dispatch(fetchBassGuitars());
     dispatch(fetchDrumkits());
     dispatch(fetchSnares());
     dispatch(fetchCymbals());
-  }, [dispatch, currentUser]);
+  }, [dispatch, checkUser]);
 
   return (
     <div className="App">
-      {currentUser.length !== 0 ? <Navbar /> : ''}
+      <Navbar />
       <RouteFile />
     </div>
   );

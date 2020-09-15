@@ -7,10 +7,12 @@ import drumkitReducer from '../reducers/drumkitSlice';
 import snaresReducer from '../reducers/snaresSlice';
 import cymbalsReducer from '../reducers/cymbalsSlice';
 import listReducer from '../reducers/filterSlice';
+import newInstrumentReducer from '../reducers/newInstrumentSlice';
 
 export default configureStore({
   reducer: {
     users: usersReducer,
+    newInstrument: newInstrumentReducer,
     instruments: instrumentsReducer,
     guitars: guitarsReducer,
     bassGuitars: bassGuitarsReducer,

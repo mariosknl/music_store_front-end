@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import userActions from '../actionCreators/userActions';
 
 const {
-  currentUser, userRegistration, logoutUser, loginUser,
+  checkUser, userRegistration, logoutUser, loginUser,
 } = userActions;
 
 const defaultState = {
@@ -35,10 +35,10 @@ const usersSlice = createSlice({
       state.status = 'failed';
       state.error = action.error.message;
     },
-    [currentUser.pending]: state => {
+    [checkUser.pending]: state => {
       state.status = 'loading';
     },
-    [currentUser.fulfilled]: (state, action) => {
+    [checkUser.fulfilled]: (state, action) => {
       if (action.payload.user) {
         return {
           currentUser: { ...action.payload.user },
@@ -54,7 +54,7 @@ const usersSlice = createSlice({
       }
       state.status = 'fulfilled';
     },
-    [currentUser.rejected]: (state, action) => {
+    [checkUser.rejected]: (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
     },

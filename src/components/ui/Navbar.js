@@ -63,7 +63,7 @@ const Navbar = () => {
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item text-white font-bold uppercase flex justify-center items-center ml-2">
-            <Link to="/" onClick={closeMobileMenu}>
+            <Link to="/mainpage" onClick={closeMobileMenu}>
               Homepage
             </Link>
           </li>

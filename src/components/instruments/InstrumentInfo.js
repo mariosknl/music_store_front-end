@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable function-paren-newline */
 import React from 'react';
@@ -14,13 +15,12 @@ function InstrumentInfo({ name }) {
         Object.keys(ins[name]).map(key => (
           <div
             key={uuidv4()}
-            className="w-3/4 overflow-hidden mx-auto text-center"
-          >
+            className="w-3/4 overflow-hidden mx-auto text-center">
             {key === 'image_url' ? (
               <img
                 key={uuidv4()}
                 src={ins[name].image_url}
-                className="w-full my-4 rounded bg-white"
+                className="w-full my-4 rounded bg-white h-32"
                 alt=""
               />
             ) : (
@@ -29,8 +29,7 @@ function InstrumentInfo({ name }) {
             {key === 'name' ? (
               <p
                 key={uuidv4()}
-                className="mt-4 lg:text-3xl md:text-2xl underline"
-              >
+                className="mt-4 lg:text-3xl md:text-2xl underline">
                 {ins[name].name}
               </p>
             ) : (

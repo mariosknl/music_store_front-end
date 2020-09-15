@@ -34,7 +34,7 @@ const logoutUser = createAsyncThunk('user/logout', async () => {
   return '';
 });
 
-const currentUser = createAsyncThunk('user/logged_in', async () => {
+const checkUser = createAsyncThunk('user/logged_in', async () => {
   const options = {
     method: 'GET',
     url: 'http://localhost:3000/logged_in',
@@ -48,5 +48,5 @@ export default {
   userRegistration,
   loginUser,
   logoutUser,
-  currentUser,
+  checkUser,
 };

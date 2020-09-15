@@ -1,31 +1,22 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 /* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ProgressBar from './ProgressBar';
 import newInst from '../../../actionCreators/newInstrumentAction';
+import { projectStorage } from '../../../firebase/config';
 
 const GuitarForm = () => {
   const dispatch = useDispatch();
   const { createInstruments } = newInst;
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
+  const [imageAsFile, setImageAsFile] = useState('');
 
   const types = ['image/png', 'image/jpeg'];
-
-  const changeHandler = e => {
-    const selected = e.target.files[0];
-
-    if (selected && types.includes(selected.type)) {
-      setFile(selected);
-      setError('');
-    } else {
-      setFile(null);
-      setError('Please select an image file (png or jpeg)');
-    }
-  };
 
   const formik = useFormik({
     initialValues: {
@@ -34,30 +25,61 @@ const GuitarForm = () => {
       pickups: '',
       image_url: '',
     },
-    validationSchema: Yup.object({
-      name: Yup.string()
-        .min(3, 'Needs to be at least 3 characters')
-        .required('Cannot be empty'),
-      strings: Yup.number().required('Cannot be empty'),
-      pickups: Yup.number().required('Cannot be empty'),
-      image_url: Yup.string().required('Cannot be empty'),
-    }),
-
     onSubmit: values => {
-      const {
-        name, strings, pickups, image_url,
-      } = values;
-      const guitarObj = {
-        guitar: {
-          name,
-          strings,
-          pickups,
-          image_url,
+      if (!imageAsFile) {
+        alert('You need to upload an image');
+        return '';
+      }
+      const uploadTask = projectStorage
+        .ref(`/images/${imageAsFile.name}`)
+        .put(imageAsFile);
+      uploadTask.on(
+        'state_changed',
+        snapShot => {
+          console.log(snapShot);
         },
-      };
-      dispatch(createInstruments(guitarObj));
+        err => {
+          console.log(err);
+        },
+        () => {
+          projectStorage
+            .ref('images')
+            .child(imageAsFile.name)
+            .getDownloadURL()
+            .then(firebaseURL => {
+              const { name, strings, pickups } = values;
+              const guitarObj = {
+                instrument: {
+                  guitar: {
+                    name,
+                    strings,
+                    pickups,
+                    image_url: firebaseURL,
+                  },
+                },
+                type: 'guitar',
+              };
+              dispatch(createInstruments(guitarObj));
+            });
+        },
+      );
+      return '';
     },
   });
+
+  const handleImage = e => {
+    e.preventDefault();
+    const image = e.target.files[0];
+
+    if (image && types.includes(image.type)) {
+      setImageAsFile(() => image);
+      setError('');
+    } else {
+      setFile(null);
+      setError('You should upload only image (png or jpeg/jpg)');
+      console.log(image);
+    }
+  };
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -89,7 +111,7 @@ const GuitarForm = () => {
         value={formik.values.pickups}
       />
       <label htmlFor="file">
-        <input type="file" name="" id="" onChange={changeHandler} />
+        <input type="file" name="image" onChange={handleImage} />
       </label>
       <div className="output">
         {error && <div className="error">{error}</div>}

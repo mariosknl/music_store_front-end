@@ -3,14 +3,15 @@ import axios from 'axios';
 
 const createInstruments = createAsyncThunk(
   'instruments/new_instrument',
-  async () => {
+  async args => {
     const options = {
       method: 'POST',
       url: 'http://localhost:3000/instruments/create',
+      data: args,
     };
     const response = await axios(options);
-    return response;
+    return response.data;
   },
 );
 
-export default createInstruments;
+export default { createInstruments };
