@@ -5,6 +5,7 @@
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 import newInst from '../../../actionCreators/newInstrumentAction';
 import { projectStorage } from '../../../firebase/config';
@@ -15,6 +16,7 @@ const GuitarForm = () => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const [imageAsFile, setImageAsFile] = useState('');
+  const [redirect, setRedirect] = useState(false);
 
   const types = ['image/png', 'image/jpeg'];
 
@@ -60,6 +62,7 @@ const GuitarForm = () => {
                 type: 'guitar',
               };
               dispatch(createInstruments(guitarObj));
+              setRedirect(true);
             });
         },
       );
@@ -82,44 +85,64 @@ const GuitarForm = () => {
   };
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="name">Instrument Name: </label>
-      <input
-        id="name"
-        name="name"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.name}
-      />
-      <label htmlFor="strings">Strings: </label>
-      <input
-        id="strings"
-        name="strings"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.strings}
-      />
-      <label htmlFor="pickups">Pickups: </label>
-      <input
-        id="pickups"
-        name="pickups"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.pickups}
-      />
-      <label htmlFor="file">
-        <input type="file" name="image" onChange={handleImage} />
-      </label>
-      <div className="output">
-        {error && <div className="error">{error}</div>}
-        {file && <div className="error">{file.name}</div>}
-        {file && <ProgressBar file={file} setFile={setFile} />}
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    <>
+      <h3 className="font-bold text-2xl text-center">Create a new Guitar</h3>
+      <form
+        onSubmit={formik.handleSubmit}
+        className="bg-gray-400 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-3/4 mx-auto mt-8 flex flex-col"
+      >
+        <label htmlFor="name">Instrument Name: </label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          className="outline-none rounded"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.name}
+        />
+        <label htmlFor="strings">Strings: </label>
+        <input
+          id="strings"
+          name="strings"
+          type="text"
+          className="outline-none rounded"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.strings}
+        />
+        <label htmlFor="pickups">Pickups: </label>
+        <input
+          id="pickups"
+          name="pickups"
+          type="text"
+          className="outline-none rounded"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.pickups}
+        />
+        <label htmlFor="file">
+          <input
+            type="file"
+            className="mt-2 outline-none"
+            name="image"
+            onChange={handleImage}
+          />
+        </label>
+        <div className="output">
+          {error && <div className="error">{error}</div>}
+          {file && <div className="error">{file.name}</div>}
+          {file && <ProgressBar file={file} setFile={setFile} />}
+        </div>
+        <button
+          type="submit"
+          className="border-2 w-24 mx-auto hover:text-white hover:bg-gray-800 rounded"
+        >
+          Submit
+        </button>
+      </form>
+      {redirect ? <Redirect to="/mainpage" /> : ''}
+    </>
   );
 };
 

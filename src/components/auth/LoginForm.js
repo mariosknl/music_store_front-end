@@ -42,7 +42,7 @@ const LoginForm = () => {
   return (
     <>
       {redirect ? <Redirect to="/mainpage" /> : ''}
-      <div className="w-full max-w-xs">
+      <div className="w-full max-w-xs mx-auto">
         <Form formik={formik} text="Login" signup={false} />
       </div>
     </>

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Link } from 'react-router-dom';
 import Navbar from './components/ui/Navbar';
 import RouteFile from './components/RouteFile';
-import AdminRoutes from './components/ui/forms/GuitarForm';
+import AdminRoutes from './components/AdminRoutes';
 import './App.css';
 
 import curUser from './actionCreators/userActions';
@@ -34,9 +35,18 @@ function App() {
   }
   return (
     <div className="App">
-      <Navbar />
-      <RouteFile />
-      {admin.currentUser.isAdmin ? <AdminRoutes /> : ''}
+      {admin.currentUser.isAdmin ? (
+        <>
+          <Navbar />
+          <Link to="/guitar_form">Add a New Guitar</Link>
+          <AdminRoutes />
+        </>
+      ) : (
+        <>
+          <Navbar />
+          <RouteFile />
+        </>
+      )}
     </div>
   );
 }
