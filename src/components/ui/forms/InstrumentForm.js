@@ -93,9 +93,6 @@ const InstrumentForm = props => {
 
   return (
     <>
-      <h3 className="font-bold text-2xl text-center">
-        Create a new Instrument
-      </h3>
       <form
         onSubmit={formik.handleSubmit}
         className="bg-gray-400 shadow-md rounded px-8 py-6 mb-4 w-3/4 mx-auto mt-8 flex flex-col"
@@ -109,7 +106,9 @@ const InstrumentForm = props => {
               ''
             ) : (
               <input
+                name={field}
                 type="text"
+                value={formik.values[field]}
                 onChange={formik.handleChange}
                 placeholder={field}
                 className="my-2 rounded pl-1"

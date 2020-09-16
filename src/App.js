@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Link } from 'react-router-dom';
 import Navbar from './components/ui/Navbar';
 import RouteFile from './components/RouteFile';
 import AdminRoutes from './components/AdminRoutes';
@@ -30,16 +29,11 @@ function App() {
     dispatch(fetchCymbals());
   }, [dispatch, checkUser]);
 
-  // if (!admin) {
-  //   return '';
-  // }
-
   return (
     <div className="App">
       {admin.currentUser.isAdmin ? (
         <>
           <Navbar />
-          <Link to="/guitar_form">Add a New Guitar</Link>
           <AdminRoutes />
         </>
       ) : (
