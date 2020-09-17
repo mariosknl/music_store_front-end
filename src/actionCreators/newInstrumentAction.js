@@ -6,7 +6,7 @@ const createInstruments = createAsyncThunk(
   async args => {
     const options = {
       method: 'POST',
-      url: 'http://localhost:3000/instruments/create',
+      url: 'https://tranquil-sea-36009.herokuapp.com/instruments/create',
       data: args,
     };
     const response = await axios(options);
