@@ -5,6 +5,7 @@ const fetchDrumkits = createAsyncThunk('instruments/drumkits', async () => {
   const options = {
     method: 'GET',
     url: 'https://tranquil-sea-36009.herokuapp.com/instruments/drumkits',
+    headers: '*',
   };
   const response = await axios(options);
   return response.data.drumkits;

@@ -7,6 +7,7 @@ const fetchInstruments = createAsyncThunk(
     const options = {
       method: 'GET',
       url: 'https://tranquil-sea-36009.herokuapp.com/instruments/index',
+      headers: '*',
     };
     const response = await axios(options);
     return response.data.all_instrument;
