@@ -5,7 +5,9 @@ const fetchSnares = createAsyncThunk('instruments/snares', async () => {
   const options = {
     method: 'GET',
     url: 'https://tranquil-sea-36009.herokuapp.com/instruments/snares',
-    headers: '*',
+    headers: {
+      snare: 'snares',
+    },
   };
   const response = await axios(options);
   return response.data.snares;
