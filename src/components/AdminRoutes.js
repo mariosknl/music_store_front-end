@@ -39,13 +39,12 @@ const AdminRoutes = () => {
     <Switch>
       <Route path="/mainpage" component={MainPage} />
       {list.map(instrument => (
-        <Route exact key={instrument} path={`instruments/${instrument}`}>
+        <Route exact key={instrument} path={`/instruments/${instrument}`}>
           <InstrumentInfo name={instrument} />
         </Route>
       ))}
-      <Route exact path="/" component={Homepage} />
       {listArr.map((inst, idx) => (
-        <Route exact key={uuidv4()} path={`instrument_form/${idx}`}>
+        <Route exact key={uuidv4()} path={`/instrument_form/${idx}`}>
           <h3 className="font-bold text-2xl text-center">
             {`Create new ${list[idx]}`}
           </h3>
@@ -58,6 +57,7 @@ const AdminRoutes = () => {
         </Route>
       ))}
 
+      <Route exact path="/" component={Homepage} />
       <Route render={() => <h1>404: Page Not Found</h1>} />
     </Switch>
   );
