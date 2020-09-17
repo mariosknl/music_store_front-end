@@ -7,7 +7,6 @@ import Homepage from './Homepage';
 import InstrumentInfo from './instruments/InstrumentInfo';
 import MainPage from './MainPage';
 
-import GuitarForm from './ui/forms/GuitarForm';
 import InstrumentForm from './ui/forms/InstrumentForm';
 
 const AdminRoutes = () => {
@@ -43,7 +42,8 @@ const AdminRoutes = () => {
         <Route
           exact
           key={instrument}
-          path={`https://musicstorebymarios.netlify.app/instruments/${instrument}`}>
+          path={`https://musicstorebymarios.netlify.app/instruments/${instrument}`}
+        >
           <InstrumentInfo name={instrument} />
         </Route>
       ))}
@@ -52,7 +52,8 @@ const AdminRoutes = () => {
         <Route
           exact
           key={uuidv4()}
-          path={`https://musicstorebymarios.netlify.app/instrument_form/${idx}`}>
+          path={`https://musicstorebymarios.netlify.app/instrument_form/${idx}`}
+        >
           <h3 className="font-bold text-2xl text-center">
             {`Create new ${list[idx]}`}
           </h3>
