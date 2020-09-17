@@ -17,7 +17,7 @@ const Navbar = () => {
   const admin = useSelector(state => state.users);
   const list = useSelector(state => state.list.list);
   const dispatch = useDispatch();
-  const { logoutUser } = logUser;
+  const { logoutUser, userRegistration } = logUser;
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -64,6 +64,16 @@ const Navbar = () => {
           </button>
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className="nav-item text-white font-bold uppercase flex justify-center items-center ml-2">
+            <Link
+              to="/signup"
+              onClick={() => {
+                dispatch(userRegistration());
+                closeMobileMenu();
+              }}>
+              Sign Up
+            </Link>
+          </li>
           <li className="nav-item text-white font-bold uppercase flex justify-center items-center ml-2">
             <Link to="/mainpage" onClick={closeMobileMenu}>
               Homepage
