@@ -31,17 +31,8 @@ function App() {
 
   return (
     <div className="App">
-      {admin.currentUser.isAdmin ? (
-        <>
-          <Navbar />
-          <AdminRoutes />
-        </>
-      ) : (
-        <>
-          <Navbar />
-          <RouteFile />
-        </>
-      )}
+      <Navbar />
+      {admin.currentUser.isAdmin ? <AdminRoutes /> : <RouteFile />}
     </div>
   );
 }

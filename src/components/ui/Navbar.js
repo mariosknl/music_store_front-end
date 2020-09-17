@@ -119,7 +119,7 @@ const Navbar = () => {
             <>
               <li>
                 <Link
-                  to="instrument_form/0"
+                  to="/instrument_form/0"
                   onClick={closeMobileMenu}
                   className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
                   Create BassGuitars
@@ -127,7 +127,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  to="instrument_form/1"
+                  to="/instrument_form/1"
                   onClick={closeMobileMenu}
                   className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
                   Create Guitars
@@ -135,7 +135,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  to="instrument_form/2"
+                  to="/instrument_form/2"
                   onClick={closeMobileMenu}
                   className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
                   Create Drumkits
@@ -143,7 +143,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  to="instrument_form/3"
+                  to="/instrument_form/3"
                   onClick={closeMobileMenu}
                   className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
                   Create Snares
@@ -151,7 +151,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  to="instrument_form/3"
+                  to="/instrument_form/3"
                   onClick={closeMobileMenu}
                   className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
                   Create Cymbals

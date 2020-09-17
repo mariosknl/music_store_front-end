@@ -37,7 +37,6 @@ const AdminRoutes = () => {
 
   return (
     <Switch>
-      <Route path="/mainpage" component={MainPage} />
       {list.map(instrument => (
         <Route exact key={instrument} path={`/instruments/${instrument}`}>
           <InstrumentInfo name={instrument} />
@@ -57,6 +56,7 @@ const AdminRoutes = () => {
         </Route>
       ))}
 
+      <Route exact path="/mainpage" component={MainPage} />
       <Route exact path="/" component={Homepage} />
       <Route render={() => <h1>404: Page Not Found</h1>} />
     </Switch>
