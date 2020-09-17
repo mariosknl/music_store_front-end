@@ -39,9 +39,6 @@ const checkUser = createAsyncThunk('user/logged_in', async () => {
     method: 'GET',
     url: 'https://tranquil-sea-36009.herokuapp.com/logged_in',
     withCredentials: true,
-    headers: {
-      user: 'user_loggedIn',
-    },
   };
   const response = await axios(options);
   return response.data;
