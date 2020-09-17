@@ -97,6 +97,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/login"
+                onClick={closeMobileMenu}
                 className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
                 Login
               </Link>

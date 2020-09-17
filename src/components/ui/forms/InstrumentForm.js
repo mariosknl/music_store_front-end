@@ -23,8 +23,7 @@ const InstrumentForm = props => {
 
   const types = ['image/png', 'image/jpeg'];
 
-  const { fields } = props;
-  // const { saveProps } = props;
+  const { fields, type } = props;
   const initVals = {};
 
   fields.forEach(field => (initVals[field] = ''));
@@ -34,7 +33,6 @@ const InstrumentForm = props => {
       ...initVals,
     },
     onSubmit: (values, { resetForm }) => {
-      // saveProps(values);
       resetForm({ values: '' });
 
       if (!imageAsFile) {
@@ -67,7 +65,7 @@ const InstrumentForm = props => {
                     image_url: firebaseURL,
                   },
                 },
-                type: 'bassGuitar',
+                type,
               };
               dispatch(createInstruments(bassGuitarObj));
               setRedirect(true);
@@ -134,6 +132,7 @@ const InstrumentForm = props => {
 
 InstrumentForm.propTypes = {
   fields: PropTypes.instanceOf(Array).isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default InstrumentForm;

@@ -18,7 +18,7 @@ const AdminRoutes = () => {
   const snares = useSelector(state => state.snares);
   const cymbals = useSelector(state => state.cymbals);
 
-  const listArr = [guitars, bassGuitars, drumkits, snares, cymbals];
+  const listArr = [bassGuitars, guitars, drumkits, snares, cymbals];
 
   if (guitars.guitars.length === 0) {
     return '';
@@ -49,12 +49,13 @@ const AdminRoutes = () => {
       {listArr.map((inst, idx) => (
         <Route exact key={uuidv4()} path={`/instrument_form/${idx}`}>
           <h3 className="font-bold text-2xl text-center">
-            {`Create a new ${[inst[0]]}`}
+            {`Create new ${list[idx]}`}
           </h3>
           <InstrumentForm
             fields={Object.keys(
               inst[Object.keys(inst)[0]][0][Object.keys(inst)[0]],
             )}
+            type={list[idx]}
           />
         </Route>
       ))}
