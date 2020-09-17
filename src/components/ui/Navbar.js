@@ -14,6 +14,7 @@ const Navbar = () => {
   const [login, setLogin] = useState(true);
 
   const username = useSelector(state => state.users.currentUser.user);
+  const admin = useSelector(state => state.users);
   const list = useSelector(state => state.list.list);
   const dispatch = useDispatch();
   const { logoutUser } = logUser;
@@ -85,6 +86,7 @@ const Navbar = () => {
                 onClick={() => {
                   dispatch(logoutUser());
                   setLogin(false);
+                  closeMobileMenu();
                 }}
                 onKeyUp={() => {
                   dispatch(logoutUser());
@@ -102,6 +104,52 @@ const Navbar = () => {
                 Login
               </Link>
             </li>
+          )}
+          {admin.currentUser.isAdmin ? (
+            <>
+              <li>
+                <Link
+                  to="//isntrument_form/0"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
+                  Create BassGuitars
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="//isntrument_form/1"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
+                  Create Guitars
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="//isntrument_form/2"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
+                  Create Drumkits
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="//isntrument_form/3"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
+                  Create Snares
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="//isntrument_form/3"
+                  onClick={closeMobileMenu}
+                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
+                  Create Cymbals
+                </Link>
+              </li>
+            </>
+          ) : (
+            ''
           )}
         </ul>
       </nav>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const PageLinks = () => (
+const pageLinks = () => (
   <>
     <Link to="/isntrument_form/0">
       <p>BassForm</p>
@@ -21,4 +21,4 @@ const PageLinks = () => (
   </>
 );
 
-export default PageLinks;
+export default pageLinks;
