@@ -4,7 +4,7 @@ import axios from 'axios';
 const userRegistration = createAsyncThunk('users/signup', async args => {
   const options = {
     method: 'POST',
-    url: 'https://tranquil-sea-36009.herokuapp.com/registrations',
+    url: 'http://localhost:3000/registrations',
     withCredentials: true,
     data: args,
   };
@@ -15,7 +15,7 @@ const userRegistration = createAsyncThunk('users/signup', async args => {
 const loginUser = createAsyncThunk('user/login', async args => {
   const options = {
     method: 'POST',
-    url: 'https://tranquil-sea-36009.herokuapp.com/sessions',
+    url: 'http://localhost:3000/sessions',
     withCredentials: true,
     data: args,
   };
@@ -26,7 +26,7 @@ const loginUser = createAsyncThunk('user/login', async args => {
 const logoutUser = createAsyncThunk('user/logout', async () => {
   const options = {
     method: 'DELETE',
-    url: 'https://tranquil-sea-36009.herokuapp.com/logout',
+    url: 'http://localhost:3000/logout',
     withCredentials: true,
   };
 
@@ -37,7 +37,7 @@ const logoutUser = createAsyncThunk('user/logout', async () => {
 const checkUser = createAsyncThunk('user/logged_in', async () => {
   const options = {
     method: 'GET',
-    url: 'https://tranquil-sea-36009.herokuapp.com/logged_in',
+    url: 'http://localhost:3000/logged_in',
     withCredentials: true,
   };
   const response = await axios(options);

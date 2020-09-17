@@ -6,7 +6,7 @@ const fetchBassGuitars = createAsyncThunk(
   async () => {
     const options = {
       method: 'GET',
-      url: 'https://tranquil-sea-36009.herokuapp.com/instruments/bass_guitars',
+      url: 'http://localhost:3000/instruments/bass_guitars',
     };
     const response = await axios(options);
     return response.data.bass_guitars;
