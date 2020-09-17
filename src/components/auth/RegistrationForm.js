@@ -1,14 +1,17 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+import { Redirect } from 'react-router-dom';
 import userRegister from '../../actionCreators/userActions';
 import Form from '../ui/Form';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
+  const [redirect, setRedirect] = useState(false);
   const { userRegistration } = userRegister;
+
   const formik = useFormik({
     initialValues: { username: '', password: '', passwordConfirmation: '' },
     validationSchema: Yup.object({
@@ -37,11 +40,13 @@ const RegistrationForm = () => {
         },
       };
       dispatch(userRegistration(userObj));
+      setRedirect(true);
     },
   });
 
   return (
     <>
+      {redirect ? <Redirect to="/mainpage" /> : ''}
       <div className="w-full max-w-xs">
         <Form formik={formik} signup text="Sign Up" />
       </div>

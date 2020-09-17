@@ -13,7 +13,7 @@ const Navbar = () => {
   const [button, setButton] = useState(true);
   const [login, setLogin] = useState(true);
 
-  const username = useSelector(state => state.users.currentUser.user);
+  const username = useSelector(state => state.users.currentUser);
   const admin = useSelector(state => state.users);
   const list = useSelector(state => state.list.list);
   const dispatch = useDispatch();
