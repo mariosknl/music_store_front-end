@@ -64,7 +64,7 @@ const Navbar = () => {
           </button>
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className="nav-item text-white font-bold uppercase flex justify-center items-center ml-2">
+          <li className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center my-2">
             <Link
               to="/signup"
               onClick={() => {
@@ -74,14 +74,14 @@ const Navbar = () => {
               Sign Up
             </Link>
           </li>
-          <li className="nav-item text-white font-bold uppercase flex justify-center items-center ml-2">
+          <li className="nav-item text-gray-500 hover:text-white font-bold uppercase flex justify-center items-center ml-2">
             <Link to="/mainpage" onClick={closeMobileMenu}>
               Homepage
             </Link>
           </li>
           {list.map(item => (
             <li
-              className="nav-item font-bold uppercase text-white mx-auto justify-center flex items-center ml-2"
+              className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-2"
               key={item}>
               <Link to={`/instruments/${item}`} onClick={closeMobileMenu}>
                 {item}
@@ -110,7 +110,7 @@ const Navbar = () => {
               <Link
                 to="/login"
                 onClick={closeMobileMenu}
-                className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
+                className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-2">
                 Login
               </Link>
             </li>
