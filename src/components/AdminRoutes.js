@@ -37,11 +37,6 @@ const AdminRoutes = () => {
 
   return (
     <Switch>
-      {list.map(instrument => (
-        <Route exact key={instrument} path={`/instruments/${instrument}`}>
-          <InstrumentInfo name={instrument} />
-        </Route>
-      ))}
       {listArr.map((inst, idx) => (
         <Route exact key={uuidv4()} path={`/instrument_form/${idx}`}>
           <h3 className="font-bold text-2xl text-center">
@@ -53,6 +48,11 @@ const AdminRoutes = () => {
             )}
             type={list[idx]}
           />
+        </Route>
+      ))}
+      {list.map(instrument => (
+        <Route exact key={instrument} path={`/instruments/${instrument}`}>
+          <InstrumentInfo name={instrument} />
         </Route>
       ))}
 
