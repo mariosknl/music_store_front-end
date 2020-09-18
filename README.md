@@ -1,8 +1,8 @@
 # React & Redux - Front-end / eMusic Store
 
-In this project, I created a Rails API which has authentication users functionality. There are some validations while creating a new user. Also, an admin exists who is able to see some extra links in his navbar, providing him the ability to create new instruments. There are 5 different categories of instruments saved in the API and a generic link in the navbar showing all the instruments stores in the API. The Rails API is stored in Heroku while the React & Redux is located at Netlify. I divided this project into to different repositories so each one will work independently from the other. For the images, I'm using Firebase for storing. Below, you can find the link to the back-end Rails API repository. The Readme file has also details about the project.
+In this project, I created the front-end side of my application using React & Redux. There are validations when creating a new user. Also, an admin exists who is able to see some extra links in his navbar, providing him the ability to create new instruments. There are 5 different categories of instruments saved in the API and a generic link in the navbar showing all the instruments stores in the API. The Rails API is stored in Heroku while the React & Redux is located at Netlify. I divided this project into to different repositories so each one will work independently from the other. For the images, I'm using Firebase for storing them. Below, you can find the link to the back-end Rails API repository. The Readme file has also details about the project.
 
-This repository is used for the front-end part of the application.
+This repository is used for the front-end part of my application.
 
 # BUILD WITH
 
@@ -22,6 +22,10 @@ This repository is used for the front-end part of the application.
 - Uuid
 - Prettier
 - Eslint
+
+# Back-End Rails API
+
+[GitHub Repo](https://github.com/mariosknl/Music_Store_back)
 
 # Live Version
 
