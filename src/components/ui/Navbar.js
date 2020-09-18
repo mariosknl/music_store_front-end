@@ -109,7 +109,9 @@ const Navbar = () => {
             <li>
               <Link
                 to="/login"
-                onClick={closeMobileMenu}
+                onClick={() => {
+                  closeMobileMenu();
+                }}
                 className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-2">
                 Login
               </Link>
