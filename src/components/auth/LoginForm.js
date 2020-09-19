@@ -43,7 +43,7 @@ const LoginForm = () => {
     <>
       {redirect ? <Redirect to="/mainpage" /> : ''}
       <div className="w-full max-w-xs mx-auto mt-8">
-        <Form val={formik} text="Login" signup={false} />
+        <Form formik={formik} text="Login" signup={false} />
         {redirect ? <Redirect to="/mainpage" /> : ''}
       </div>
     </>

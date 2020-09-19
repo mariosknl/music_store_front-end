@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import Button from './Button';
 
-const Form = ({ val, signup, text }) => {
-  const { username, password, passwordConfirmation } = val.values;
-  const { handleSubmit, handleChange, handleBlur } = val;
+const Form = ({ formik, signup, text }) => {
+  const { username, password, passwordConfirmation } = formik.values;
+  const { handleSubmit, handleChange, handleBlur } = formik;
   return (
     <>
       <form
@@ -61,7 +61,7 @@ const Form = ({ val, signup, text }) => {
 };
 
 Form.propTypes = {
-  val: PropTypes.object.isRequired,
+  formik: PropTypes.object.isRequired,
   signup: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
 };
