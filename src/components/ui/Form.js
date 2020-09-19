@@ -1,18 +1,18 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 import Button from './Button';
 
-const Form = ({ formik, signup, text }) => {
-  const { username, password, passwordConfirmation } = formik.values;
-  const { handleSubmit, handleChange, handleBlur } = formik;
+const Form = ({ val, signup, text }) => {
+  const { username, password, passwordConfirmation } = val.values;
+  const { handleSubmit, handleChange, handleBlur } = val;
   return (
     <>
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-      >
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <label htmlFor="username">
           Username
           <Input
@@ -60,7 +60,7 @@ const Form = ({ formik, signup, text }) => {
 };
 
 Form.propTypes = {
-  formik: PropTypes.oneOfType([PropTypes.string.isRequired]).isRequired,
+  val: PropTypes.object.isRequired,
   signup: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
 };

@@ -9,6 +9,8 @@ import LikeButton from '../ui/Like';
 
 function InstrumentInfo({ name }) {
   const instrument = useSelector(state => state[name]);
+  const user = useSelector(state => state.users);
+  const { currentUser } = user;
 
   return (
     <>
@@ -56,7 +58,7 @@ function InstrumentInfo({ name }) {
             </div>
           )),
         )}
-        {instrument.length === 0 ? '' : <LikeButton />}
+        {currentUser && instrument.length !== 0 ? <LikeButton /> : ''}
       </div>
     </>
   );
