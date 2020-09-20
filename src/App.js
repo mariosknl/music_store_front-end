@@ -20,19 +20,19 @@ function App() {
   const admin = useSelector(state => state.users);
 
   useEffect(() => {
-    dispatch(checkUser());
     dispatch(fetchInstruments());
     dispatch(fetchGuitars());
     dispatch(fetchBassGuitars());
     dispatch(fetchDrumkits());
     dispatch(fetchSnares());
     dispatch(fetchCymbals());
+    dispatch(checkUser());
   }, [dispatch, checkUser]);
 
   return (
     <div className="App">
       <Navbar />
-      {admin.currentUser.isAdmin ? <AdminRoutes /> : <RouteFile />}
+      {admin.currentUser.user ? <AdminRoutes /> : <RouteFile />}
     </div>
   );
 }

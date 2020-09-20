@@ -14,7 +14,7 @@ const drumkitSlice = createSlice({
     },
     [fetchDrumkits.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.drumkits = [...action.payload];
+      state.drumkits = [action.payload];
     },
     [fetchDrumkits.rejected]: (state, action) => {
       state.status = 'failed';

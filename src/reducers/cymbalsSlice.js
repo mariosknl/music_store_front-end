@@ -14,7 +14,7 @@ const cymbalsSlice = createSlice({
     },
     [fetchCymbals.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.cymbals = [...action.payload];
+      state.cymbals = [action.payload];
     },
     [fetchCymbals.rejected]: (state, action) => {
       state.status = 'failed';

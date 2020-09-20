@@ -8,7 +8,7 @@ import snaresReducer from '../reducers/snaresSlice';
 import cymbalsReducer from '../reducers/cymbalsSlice';
 import listReducer from '../reducers/filterSlice';
 import newInstrumentReducer from '../reducers/newInstrumentSlice';
-import likeInstrumentReducer from '../reducers/likeInstrumentSlice';
+import likeReducer from '../reducers/likeSlice';
 
 export default configureStore({
   reducer: {
@@ -20,7 +20,7 @@ export default configureStore({
     drumkits: drumkitReducer,
     snares: snaresReducer,
     cymbals: cymbalsReducer,
-    likes: likeInstrumentReducer,
+    likes: likeReducer,
     list: listReducer,
   },
 });

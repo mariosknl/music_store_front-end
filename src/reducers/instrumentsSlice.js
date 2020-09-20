@@ -14,7 +14,7 @@ const instrumentsSlice = createSlice({
     },
     [fetchInstruments.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.instruments = [...action.payload];
+      state.instruments = [action.payload];
     },
     [fetchInstruments.rejected]: (state, action) => {
       state.status = 'failed';

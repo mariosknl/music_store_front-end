@@ -14,7 +14,7 @@ const snaresSlice = createSlice({
     },
     [fetchSnares.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.snares = [...action.payload];
+      state.snares = [action.payload];
     },
     [fetchSnares.rejected]: (state, action) => {
       state.status = 'failed';

@@ -2,19 +2,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 import createLike from '../actionCreators/likeActions';
 
-const likeInstrumentSlice = createSlice({
-  name: 'new_like',
+const likeSlice = createSlice({
+  name: 'likes',
   initialState: {
-    new_like: '',
+    likes: [],
   },
-  reducers: {},
+  reducers: {
+    likes: {
+      reducer(state, action) {
+        state.likes.push(action.payload);
+      },
+    },
+  },
   extraReducers: {
     [createLike.pending]: state => {
       state.status = 'loading';
     },
     [createLike.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.likes = [...action.payload];
+      state.likes = [action.payload];
     },
     [createLike.rejected]: (state, action) => {
       state.status = 'failed';
@@ -23,4 +29,4 @@ const likeInstrumentSlice = createSlice({
   },
 });
 
-export default likeInstrumentSlice.reducer;
+export default likeSlice.reducer;

@@ -14,7 +14,8 @@ const Navbar = () => {
   const [login, setLogin] = useState(true);
 
   const username = useSelector(state => state.users.currentUser);
-  const admin = useSelector(state => state.users);
+  // console.log(username);
+  // const admin = useSelector(state => state.users);
   const list = useSelector(state => state.list.list);
   const dispatch = useDispatch();
   const { logoutUser, userRegistration } = logUser;
@@ -88,7 +89,7 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-          {username && login ? (
+          {username.user && login ? (
             <li>
               <button
                 type="button"
@@ -97,9 +98,6 @@ const Navbar = () => {
                   dispatch(logoutUser());
                   setLogin(false);
                   closeMobileMenu();
-                }}
-                onKeyUp={() => {
-                  dispatch(logoutUser());
                 }}
                 tabIndex={0}>
                 Logout
@@ -111,13 +109,14 @@ const Navbar = () => {
                 to="/login"
                 onClick={() => {
                   closeMobileMenu();
+                  setLogin(true);
                 }}
                 className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-2">
                 Login
               </Link>
             </li>
           )}
-          {admin.currentUser.isAdmin ? (
+          {username.user ? (
             <>
               <li>
                 <Link

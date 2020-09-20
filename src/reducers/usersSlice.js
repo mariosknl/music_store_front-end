@@ -3,9 +3,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import userActions from '../actionCreators/userActions';
 
-const {
-  checkUser, userRegistration, logoutUser, loginUser,
-} = userActions;
+const { checkUser, userRegistration, logoutUser, loginUser } = userActions;
 
 const defaultState = {
   currentUser: '',
@@ -41,10 +39,15 @@ const usersSlice = createSlice({
     [checkUser.fulfilled]: (state, action) => {
       if (action.payload.user) {
         return {
-          currentUser: { ...action.payload.user },
+          ...state,
+          user: { user: action.payload.user },
         };
       }
       state.status = 'fulfilled';
+    },
+    [checkUser.rejected]: (state, action) => {
+      state.status = 'failed';
+      state.error = action.error.message;
     },
     [loginUser.fulfilled]: (state, action) => {
       if (action.payload.user) {
@@ -53,10 +56,6 @@ const usersSlice = createSlice({
         };
       }
       state.status = 'fulfilled';
-    },
-    [checkUser.rejected]: (state, action) => {
-      state.status = 'failed';
-      state.error = action.error.message;
     },
     [logoutUser.fulfilled]: () => defaultState,
   },
