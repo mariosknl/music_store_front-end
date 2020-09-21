@@ -28,9 +28,6 @@ const InstrumentForm = props => {
 
   fields.forEach(field => (initVals[field] = ''));
 
-  console.log('fields', fields);
-  console.log('initial values', initVals);
-
   const formik = useFormik({
     initialValues: {
       ...initVals,

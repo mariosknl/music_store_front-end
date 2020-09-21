@@ -11,13 +11,19 @@ import InstrumentForm from './ui/forms/InstrumentForm';
 
 const AdminRoutes = () => {
   const list = useSelector(state => state.list.list);
-  const guitars = useSelector(state => state.guitars);
-  const bassGuitars = useSelector(state => state.bassGuitars);
-  const drumkits = useSelector(state => state.drumkits);
-  const snares = useSelector(state => state.snares);
-  const cymbals = useSelector(state => state.cymbals);
+  const guitars = useSelector(state => state.guitars.guitars);
+  const bassGuitars = useSelector(state => state.bassGuitars.bassGuitars);
+  const drumkits = useSelector(state => state.drumkits.drumkits);
+  const snares = useSelector(state => state.snares.snares);
+  const cymbals = useSelector(state => state.cymbals.cymbals);
 
-  const listArr = [bassGuitars, guitars, drumkits, snares, cymbals];
+  const listArr = [
+    bassGuitars[0],
+    guitars[0],
+    drumkits[0],
+    snares[0],
+    cymbals[0],
+  ];
 
   if (guitars.length === 0) {
     return '';
@@ -42,7 +48,7 @@ const AdminRoutes = () => {
           <h3 className="font-bold text-2xl text-center">
             {`Create new ${list[idx]}`}
           </h3>
-          <InstrumentForm fields={Object.keys(inst)} type={list[idx]} />
+          <InstrumentForm fields={Object.keys(inst[0])} type={list[idx]} />
         </Route>
       ))}
       {list.map(instrument => (
