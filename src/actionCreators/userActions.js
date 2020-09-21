@@ -4,7 +4,7 @@ import axios from 'axios';
 const userRegistration = createAsyncThunk('users/signup', async args => {
   const options = {
     method: 'POST',
-    url: 'http://localhost:3000/registrations',
+    url: 'http://localhost:3000/sign_up',
     withCredentials: true,
     data: args,
   };
@@ -15,7 +15,7 @@ const userRegistration = createAsyncThunk('users/signup', async args => {
 const loginUser = createAsyncThunk('user/login', async args => {
   const options = {
     method: 'POST',
-    url: 'http://localhost:3000/sessions',
+    url: 'http://localhost:3000/sign_in',
     withCredentials: true,
     data: args,
   };
@@ -26,7 +26,7 @@ const loginUser = createAsyncThunk('user/login', async args => {
 const logoutUser = createAsyncThunk('user/logout', async () => {
   const options = {
     method: 'DELETE',
-    url: 'http://localhost:3000/logout',
+    url: 'http://localhost:3000/signout',
     withCredentials: true,
   };
 

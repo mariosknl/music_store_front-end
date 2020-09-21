@@ -4,7 +4,7 @@ import axios from 'axios';
 const createLike = createAsyncThunk('likes/instruments', async args => {
   const options = {
     method: 'POST',
-    url: `http://localhost:3000/instruments/${args}/likes`,
+    url: `http://localhost:3000/api/v1/instruments/${args}/likes`,
     data: args,
   };
   const response = await axios(options);
