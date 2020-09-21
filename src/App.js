@@ -20,13 +20,13 @@ function App() {
   const admin = useSelector(state => state.users);
 
   useEffect(() => {
+    dispatch(checkUser());
     dispatch(fetchInstruments());
     dispatch(fetchGuitars());
     dispatch(fetchBassGuitars());
     dispatch(fetchDrumkits());
     dispatch(fetchSnares());
     dispatch(fetchCymbals());
-    dispatch(checkUser());
   }, [dispatch, checkUser]);
 
   return (

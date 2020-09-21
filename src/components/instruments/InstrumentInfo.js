@@ -28,12 +28,14 @@ function InstrumentInfo({ name }) {
             className="w-full md:w-3/4 my-4 mx-auto rounded bg-white h-32 sm:h-32 md:h-64 lg:h-64"
             alt="instrument_image"
           />
-
-          <p>
-            Strings:
-            {ins.strings}
-          </p>
-
+          {ins.strings ? (
+            <p>
+              Strings:
+              {ins.strings}
+            </p>
+          ) : (
+            ''
+          )}
           {ins.pickups ? (
             <span>
               Pickups:
@@ -42,6 +44,7 @@ function InstrumentInfo({ name }) {
           ) : (
             ''
           )}
+          <br />
           {currentUser && instrument.length !== 0 ? (
             <LikeButton id={ins.id} />
           ) : (

@@ -19,19 +19,19 @@ const AdminRoutes = () => {
 
   const listArr = [bassGuitars, guitars, drumkits, snares, cymbals];
 
-  if (guitars.guitars.length === 0) {
+  if (guitars.length === 0) {
     return '';
   }
-  if (bassGuitars.bassGuitars.length === 0) {
+  if (bassGuitars.length === 0) {
     return '';
   }
-  if (drumkits.drumkits.length === 0) {
+  if (drumkits.length === 0) {
     return '';
   }
-  if (snares.snares.length === 0) {
+  if (snares.length === 0) {
     return '';
   }
-  if (cymbals.cymbals.length === 0) {
+  if (cymbals.length === 0) {
     return '';
   }
 
@@ -42,12 +42,7 @@ const AdminRoutes = () => {
           <h3 className="font-bold text-2xl text-center">
             {`Create new ${list[idx]}`}
           </h3>
-          <InstrumentForm
-            fields={Object.keys(
-              inst[Object.keys(inst)[0]][0][Object.keys(inst)[0]],
-            )}
-            type={list[idx]}
-          />
+          <InstrumentForm fields={Object.keys(inst)} type={list[idx]} />
         </Route>
       ))}
       {list.map(instrument => (

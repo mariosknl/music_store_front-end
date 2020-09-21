@@ -41,8 +41,7 @@ const usersSlice = createSlice({
     [checkUser.fulfilled]: (state, action) => {
       if (action.payload.user) {
         return {
-          ...state,
-          user: { user: action.payload.user },
+          currentUser: { ...action.payload },
         };
       }
       state.status = 'fulfilled';
