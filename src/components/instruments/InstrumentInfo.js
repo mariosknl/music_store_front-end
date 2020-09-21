@@ -8,60 +8,47 @@ import PropTypes from 'prop-types';
 import LikeButton from '../ui/Like';
 
 function InstrumentInfo({ name }) {
-  const instrument = useSelector(state => state[name]);
+  const instrument = useSelector(state => state[name][name]);
   const user = useSelector(state => state.users);
   const { currentUser } = user;
 
+  if (instrument.length === 0) {
+    return '';
+  }
+
   return (
     <div className="w-full mx-auto mt-4 font-bold text-center">
-      {instrument[name].map(ins =>
-        Object.keys(ins[name]).map(keyIns => (
-          <div
-            key={uuidv4()}
-            className="w-3/4 overflow-hidden mx-auto text-center">
-            {keyIns === 'image_url' ? (
-              <img
-                key={uuidv4()}
-                src={ins[name].image_url}
-                className="w-full md:w-3/4 my-4 mx-auto rounded bg-white h-32 sm:h-32 md:h-64 lg:h-64"
-                alt=""
-              />
-            ) : (
-              ''
-            )}
-            {keyIns === 'name' ? (
-              <p
-                key={uuidv4()}
-                className="mt-4 lg:text-3xl md:text-2xl underline">
-                {ins[name].name}
-              </p>
-            ) : (
-              ''
-            )}
-            {keyIns === 'strings' ? (
-              <p key={uuidv4()}>
-                Strings:
-                {ins[name].strings}
-              </p>
-            ) : (
-              ''
-            )}
-            {keyIns === 'pickups' ? (
-              <span key={uuidv4()}>
-                Pickups:
-                {ins[name].pickups}
-              </span>
-            ) : (
-              ''
-            )}
-            {currentUser && instrument.length !== 0 ? (
-              <LikeButton id={ins[name].id} />
-            ) : (
-              ''
-            )}
-          </div>
-        )),
-      )}
+      {instrument[0].map(ins => (
+        <div
+          key={uuidv4()}
+          className="w-3/4 overflow-hidden mx-auto text-center">
+          <p className="mt-4 lg:text-3xl md:text-2xl underline">{ins.name}</p>
+          <img
+            src={ins.image_url}
+            className="w-full md:w-3/4 my-4 mx-auto rounded bg-white h-32 sm:h-32 md:h-64 lg:h-64"
+            alt="instrument_image"
+          />
+
+          <p>
+            Strings:
+            {ins.strings}
+          </p>
+
+          {ins.pickups ? (
+            <span>
+              Pickups:
+              {ins.pickups}
+            </span>
+          ) : (
+            ''
+          )}
+          {currentUser && instrument.length !== 0 ? (
+            <LikeButton id={ins.id} />
+          ) : (
+            ''
+          )}
+        </div>
+      ))}
     </div>
   );
 }
