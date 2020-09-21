@@ -97,14 +97,19 @@ const InstrumentForm = props => {
       >
         {fields.map(field => (
           <div key={uuidv4()}>
-            <input
-              name={field}
-              type="text"
-              value={formik.values[field]}
-              onChange={formik.handleChange}
-              placeholder={field}
-              className="my-2 rounded pl-1"
-            />
+            {field === 'image_url' ? (
+              ''
+            ) : (
+              <input
+                id={field}
+                name={field}
+                type="text"
+                value={formik.values[field]}
+                onChange={formik.handleChange}
+                placeholder={field}
+                className="my-2 rounded pl-1"
+              />
+            )}
           </div>
         ))}
         <input
