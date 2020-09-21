@@ -10,7 +10,7 @@ const Instruments = () => {
 
   return (
     <div className="flex flex-wrap p-6 rounded-lg shadow-xl">
-      {instrumentsState.map(instrument => (
+      {instrumentsState[0].map(instrument => (
         <div className="flex m-4 mx-auto rounded-lg h-56" key={uuidv4()}>
           <div className="max-w-sm flex p-6 bg-white rounded-lg shadow-xl">
             <div className="lg:items-center">

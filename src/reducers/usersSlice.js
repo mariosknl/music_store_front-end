@@ -3,7 +3,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import userActions from '../actionCreators/userActions';
 
-const { checkUser, userRegistration, logoutUser, loginUser } = userActions;
+const {
+  checkUser, userRegistration, logoutUser, loginUser,
+} = userActions;
 
 const defaultState = {
   currentUser: '',
