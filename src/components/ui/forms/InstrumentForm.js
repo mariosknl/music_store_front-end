@@ -57,9 +57,9 @@ const InstrumentForm = props => {
             .getDownloadURL()
             .then(firebaseURL => {
               const { name, strings } = values;
-              const bassGuitarObj = {
+              const instrumentsObj = {
                 instrument: {
-                  bassGuitar: {
+                  instrument: {
                     name,
                     strings,
                     image_url: firebaseURL,
@@ -67,7 +67,7 @@ const InstrumentForm = props => {
                 },
                 type,
               };
-              dispatch(createInstruments(bassGuitarObj));
+              dispatch(createInstruments(instrumentsObj));
               setRedirect(true);
             });
         },

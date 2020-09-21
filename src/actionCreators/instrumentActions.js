@@ -9,7 +9,7 @@ const fetchInstruments = createAsyncThunk(
       url: 'http://localhost:3000/api/v1/instruments/index',
     };
     const response = await axios(options);
-    return response.data.all_instrument;
+    return response.data;
   },
 );
 

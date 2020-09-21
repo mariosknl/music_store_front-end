@@ -15,7 +15,7 @@ const userRegistration = createAsyncThunk('users/signup', async args => {
 const loginUser = createAsyncThunk('user/login', async args => {
   const options = {
     method: 'POST',
-    url: 'http://localhost:3000/sign_in',
+    url: 'http://localhost:3000/login',
     withCredentials: true,
     data: args,
   };
@@ -37,7 +37,7 @@ const logoutUser = createAsyncThunk('user/logout', async () => {
 const checkUser = createAsyncThunk('user/logged', async () => {
   const options = {
     method: 'GET',
-    url: 'http://localhost:3000/logged',
+    url: 'http://localhost:3000/loggeduser',
     withCredentials: true,
   };
   const response = await axios(options);

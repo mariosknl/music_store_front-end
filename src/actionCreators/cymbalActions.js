@@ -7,7 +7,7 @@ const fetchCymbals = createAsyncThunk('instruments/cymbals', async () => {
     url: 'http://localhost:3000/api/v1/instruments/cymbals',
   };
   const response = await axios(options);
-  return response.data.cymbals;
+  return response.data;
 });
 
 export default fetchCymbals;
