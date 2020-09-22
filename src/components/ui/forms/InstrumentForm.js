@@ -11,6 +11,7 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { projectStorage } from '../../../firebase/config';
 import newInst from '../../../actionCreators/newInstrumentAction';
+import fetchInstruments from '../../../actionCreators/instrumentActions';
 import ProgressBar from './ProgressBar';
 
 const InstrumentForm = props => {
@@ -59,15 +60,14 @@ const InstrumentForm = props => {
               const { name, strings } = values;
               const instrumentsObj = {
                 instrument: {
-                  instrument: {
-                    name,
-                    strings,
-                    image_url: firebaseURL,
-                  },
+                  name,
+                  strings,
+                  image_url: firebaseURL,
                 },
                 type,
               };
               dispatch(createInstruments(instrumentsObj));
+              dispatch(fetchInstruments());
               setRedirect(true);
             });
         },
@@ -101,7 +101,7 @@ const InstrumentForm = props => {
               ''
             ) : (
               <input
-                id={field}
+                id={uuidv4()}
                 name={field}
                 type="text"
                 value={formik.values[field]}
@@ -120,7 +120,7 @@ const InstrumentForm = props => {
         />
         {error && <div className="error">{error}</div>}
         {file && <div className="error">{file.name}</div>}
-        {file && <ProgressBar file={file} setFile={setFile} />}
+        {file && <ProgressBar file={imageAsFile} setFile={setImageAsFile} />}
         <button type="submit">Add</button>
       </form>
       {redirect ? <Redirect to="/mainpage" /> : ''}
