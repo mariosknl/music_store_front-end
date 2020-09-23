@@ -64,13 +64,14 @@ const Navbar = () => {
           </button>
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          {!username ? (
+          {login ? (
             <li className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center my-2">
               <Link
                 to="/signup"
                 onClick={() => {
                   dispatch(userRegistration());
                   closeMobileMenu();
+                  setLogin(false);
                 }}>
                 Sign Up
               </Link>
@@ -92,14 +93,14 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-          {username && login ? (
+          {username.legnth !== 0 && !login ? (
             <li>
               <button
                 type="button"
                 className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3"
                 onClick={() => {
                   dispatch(logoutUser());
-                  setLogin(false);
+                  setLogin(true);
                   closeMobileMenu();
                 }}
                 tabIndex={0}>
@@ -112,7 +113,7 @@ const Navbar = () => {
                 to="/login"
                 onClick={() => {
                   closeMobileMenu();
-                  setLogin(true);
+                  setLogin(false);
                 }}
                 className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-2">
                 Login
