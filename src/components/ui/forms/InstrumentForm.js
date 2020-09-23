@@ -121,7 +121,12 @@ const InstrumentForm = props => {
         {error && <div className="error">{error}</div>}
         {file && <div className="error">{file.name}</div>}
         {file && <ProgressBar file={imageAsFile} setFile={setImageAsFile} />}
-        <button type="submit">Add</button>
+        <button
+          type="submit"
+          className="bg-gray-200 hover:bg-gray-700 w-1/5 mx-auto rounded py-1 text-bold hover:text-gray-200"
+        >
+          Add
+        </button>
       </form>
       {redirect ? <Redirect to="/mainpage" /> : ''}
     </>
