@@ -63,7 +63,7 @@ const Navbar = () => {
             {click ? <FaTimes /> : <FaBars />}
           </button>
         </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+        <ul className={click ? 'nav-menu active mr-12' : 'nav-menu mr-12'}>
           {login ? (
             <li className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center my-2">
               <Link
@@ -156,7 +156,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  to="/instrument_form/3"
+                  to="/instrument_form/4"
                   onClick={closeMobileMenu}
                   className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
                   Create Cymbals
