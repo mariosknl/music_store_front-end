@@ -17,7 +17,7 @@ const RegistrationForm = () => {
     initialValues: { username: '', password: '', password_confirmation: '' },
     validationSchema: Yup.object({
       username: Yup.string()
-        .min(6, 'Needs to be at least 5 characters')
+        .min(6, 'Needs to be at least 6 characters')
         .required('Cannot be empty'),
       password: Yup.string()
         .min(8, 'Min value is 8 characters')
@@ -26,7 +26,7 @@ const RegistrationForm = () => {
           /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
           'Must contain 8 characters, One Uppercase, One Lowercase, One Number',
         ),
-      passwordConfirmation: Yup.string().oneOf(
+      password_confirmation: Yup.string().oneOf(
         [Yup.ref('password'), null],
         'Password must match',
       ),

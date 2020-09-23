@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
@@ -6,13 +7,13 @@ import Input from './Input';
 import Button from './Button';
 
 const Form = ({ formik, signup, text }) => {
-  const { username, password, passwordConfirmation } = formik.values;
+  const { username, password, password_confirmation } = formik.values;
   const { handleSubmit, handleChange, handleBlur } = formik;
   return (
     <>
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 h-48"
       >
         <label htmlFor="username">
           Username
@@ -25,6 +26,7 @@ const Form = ({ formik, signup, text }) => {
             onChange={handleChange}
             onBlur={handleBlur}
           />
+          {formik.errors.username ? <>{formik.errors.username}</> : ''}
         </label>
 
         <label htmlFor="password">
@@ -37,23 +39,30 @@ const Form = ({ formik, signup, text }) => {
             onChange={handleChange}
             onBlur={handleBlur}
           />
+          {formik.errors.password ? <>{formik.errors.password}</> : ''}
         </label>
 
         {signup ? (
-          <label htmlFor="passwordConfirmation">
+          <label htmlFor="password_confirmation">
             <Input
               type="password"
-              passwordConfirmation={passwordConfirmation}
-              id="passwordConfirmation"
-              value={passwordConfirmation}
+              password_confirmation={password_confirmation}
+              id="password_confirmation"
+              value={password_confirmation}
               placeholder="Password Confirmation"
               onChange={handleChange}
               onBlur={handleBlur}
             />
+            {formik.errors.password_confirmation ? (
+              <>{formik.errors.password_confirmation}</>
+            ) : (
+              ''
+            )}
           </label>
         ) : (
           ''
         )}
+        <br />
         <Button text={text} />
       </form>
     </>
