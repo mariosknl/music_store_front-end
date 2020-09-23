@@ -25,7 +25,7 @@ function InstrumentInfo({ name }) {
           <p className="mt-4 lg:text-3xl md:text-2xl underline">{ins.name}</p>
           <img
             src={ins.image_url}
-            className="w-full md:w-3/4 my-4 mx-auto rounded bg-white h-32 sm:h-32 md:h-64 lg:h-64"
+            className="w-full md:w-3/4 my-4 mx-auto rounded bg-white h-32 sm:h-32 md:h-64 lg:h-xxl"
             alt="instrument_image"
           />
           {ins.strings ? (
