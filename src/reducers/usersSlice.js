@@ -8,21 +8,22 @@ const {
 } = userActions;
 
 const defaultState = {
-  currentUser: '',
   username: '',
-  password: '',
-  passwordConfirmation: '',
+  admin: false,
 };
 
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
-    currentUser: '',
     username: '',
-    password: '',
-    passwordConfirmation: '',
+    admin: false,
   },
-  reducers: {},
+  reducers: {
+    setUsername: (state, action) => {
+      const value = action.payload;
+      state.username = value;
+    },
+  },
   extraReducers: {
     [userRegistration.pending]: state => {
       state.status = 'loading';
@@ -39,24 +40,22 @@ const usersSlice = createSlice({
       state.status = 'loading';
     },
     [checkUser.fulfilled]: (state, action) => {
-      if (action.payload.user) {
-        return {
-          currentUser: { ...action.payload },
-        };
-      }
       state.status = 'fulfilled';
+      if (action.payload.user) {
+        state.username = action.payload.user.username;
+        state.admin = action.payload.user.admin;
+      }
     },
     [checkUser.rejected]: (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
     },
     [loginUser.fulfilled]: (state, action) => {
-      if (action.payload.user) {
-        return {
-          currentUser: { ...action.payload },
-        };
-      }
       state.status = 'fulfilled';
+      if (action.payload.user) {
+        state.username = action.payload.user.username;
+        state.admin = action.payload.user.admin;
+      }
     },
     [logoutUser.fulfilled]: () => defaultState,
   },

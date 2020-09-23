@@ -13,9 +13,8 @@ const Navbar = () => {
   const [button, setButton] = useState(true);
   const [login, setLogin] = useState(true);
 
-  const username = useSelector(state => state.users.currentUser);
-  // console.log(username);
-  // const admin = useSelector(state => state.users);
+  const username = useSelector(state => state.users);
+
   const list = useSelector(state => state.list.list);
   const dispatch = useDispatch();
   const { logoutUser, userRegistration } = logUser;
@@ -89,7 +88,7 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-          {username.user && login ? (
+          {username && login ? (
             <li>
               <button
                 type="button"
@@ -116,7 +115,7 @@ const Navbar = () => {
               </Link>
             </li>
           )}
-          {username.user ? (
+          {username.admin ? (
             <>
               <li>
                 <Link

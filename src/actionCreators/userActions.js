@@ -4,7 +4,7 @@ import axios from 'axios';
 const userRegistration = createAsyncThunk('users/signup', async args => {
   const options = {
     method: 'POST',
-    url: 'http://localhost:3000/sign_up',
+    url: 'http://localhost:3000/signup',
     withCredentials: 'include',
     data: args,
   };

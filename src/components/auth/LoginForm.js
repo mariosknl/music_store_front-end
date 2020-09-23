@@ -15,7 +15,7 @@ const LoginForm = () => {
     initialValues: { username: '', password: '' },
     validationSchema: Yup.object({
       username: Yup.string()
-        .min(5, 'Needs to be at least 5 characters')
+        .min(6, 'Needs to be at least 5 characters')
         .required('Cannot be empty'),
       password: Yup.string()
         .min(8, 'Min value is 8 characters')

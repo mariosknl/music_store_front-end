@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
@@ -10,13 +11,13 @@ import Form from '../ui/Form';
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
-  const { userRegistration } = userRegister;
+  const { userRegistration, checkUser } = userRegister;
 
   const formik = useFormik({
-    initialValues: { username: '', password: '', passwordConfirmation: '' },
+    initialValues: { username: '', password: '', password_confirmation: '' },
     validationSchema: Yup.object({
       username: Yup.string()
-        .min(5, 'Needs to be at least 5 characters')
+        .min(6, 'Needs to be at least 5 characters')
         .required('Cannot be empty'),
       password: Yup.string()
         .min(8, 'Min value is 8 characters')
@@ -31,15 +32,16 @@ const RegistrationForm = () => {
       ),
     }),
     onSubmit: values => {
-      const { username, password, passwordConfirmation } = values;
+      const { username, password, password_confirmation } = values;
       const userObj = {
         user: {
           username,
           password,
-          passwordConfirmation,
+          password_confirmation,
         },
       };
       dispatch(userRegistration(userObj));
+      dispatch(checkUser());
       setRedirect(true);
     },
   });
