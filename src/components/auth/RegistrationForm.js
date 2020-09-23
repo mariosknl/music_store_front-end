@@ -41,7 +41,7 @@ const RegistrationForm = () => {
         },
       };
       dispatch(userRegistration(userObj));
-      dispatch(checkUser());
+      dispatch(checkUser(userObj));
       setRedirect(true);
     },
   });

@@ -30,7 +30,10 @@ const usersSlice = createSlice({
     },
     [userRegistration.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.users = action.payload;
+      if (action.payload.user) {
+        state.username = action.payload.user.username;
+        state.admin = action.payload.user.admin;
+      }
     },
     [userRegistration.rejected]: (state, action) => {
       state.status = 'failed';
