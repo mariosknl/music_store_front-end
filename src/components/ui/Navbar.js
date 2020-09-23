@@ -93,16 +93,15 @@ const Navbar = () => {
           ))}
           {username.username.length !== 0 ? (
             <li>
-              <button
-                type="button"
-                className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3"
+              <Link
+                to="/mainpage"
+                className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-2"
                 onClick={() => {
                   dispatch(logoutUser());
                   closeMobileMenu();
-                }}
-                tabIndex={0}>
+                }}>
                 Logout
-              </button>
+              </Link>
             </li>
           ) : (
             <li>
