@@ -64,16 +64,20 @@ const Navbar = () => {
           </button>
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center my-2">
-            <Link
-              to="/signup"
-              onClick={() => {
-                dispatch(userRegistration());
-                closeMobileMenu();
-              }}>
-              Sign Up
-            </Link>
-          </li>
+          {!username ? (
+            <li className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center my-2">
+              <Link
+                to="/signup"
+                onClick={() => {
+                  dispatch(userRegistration());
+                  closeMobileMenu();
+                }}>
+                Sign Up
+              </Link>
+            </li>
+          ) : (
+            ''
+          )}
           <li className="nav-item text-gray-500 hover:text-white font-bold uppercase flex justify-center items-center ml-2">
             <Link to="/mainpage" onClick={closeMobileMenu}>
               Homepage
