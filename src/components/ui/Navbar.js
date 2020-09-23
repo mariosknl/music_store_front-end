@@ -11,7 +11,6 @@ import '../../styles/Navbar.css';
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-  const [login, setLogin] = useState(true);
 
   const username = useSelector(state => state.users);
 
@@ -64,14 +63,13 @@ const Navbar = () => {
           </button>
         </div>
         <ul className={click ? 'nav-menu active mr-12' : 'nav-menu mr-12'}>
-          {login ? (
+          {username.username === '' ? (
             <li className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center my-2">
               <Link
                 to="/signup"
                 onClick={() => {
                   dispatch(userRegistration());
                   closeMobileMenu();
-                  setLogin(false);
                 }}>
                 Sign Up
               </Link>
@@ -93,14 +91,13 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-          {username.legnth !== 0 && !login ? (
+          {username.username.length !== 0 ? (
             <li>
               <button
                 type="button"
                 className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3"
                 onClick={() => {
                   dispatch(logoutUser());
-                  setLogin(true);
                   closeMobileMenu();
                 }}
                 tabIndex={0}>
@@ -113,7 +110,6 @@ const Navbar = () => {
                 to="/login"
                 onClick={() => {
                   closeMobileMenu();
-                  setLogin(false);
                 }}
                 className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-2">
                 Login
