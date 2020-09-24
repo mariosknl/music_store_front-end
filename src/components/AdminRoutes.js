@@ -25,19 +25,19 @@ const AdminRoutes = () => {
     cymbals[0],
   ];
 
-  if (guitars.length === 0) {
+  if (guitars[0].length === 0) {
     return '';
   }
-  if (bassGuitars.length === 0) {
+  if (bassGuitars[0].length === 0) {
     return '';
   }
-  if (drumkits.length === 0) {
+  if (drumkits[0].length === 0) {
     return '';
   }
-  if (snares.length === 0) {
+  if (snares[0].length === 0) {
     return '';
   }
-  if (cymbals.length === 0) {
+  if (cymbals[0].length === 0) {
     return '';
   }
 
