@@ -19,7 +19,7 @@ const Form = ({ formik, signup, text }) => {
           Username
           <Input
             type="text"
-            username="username"
+            username={username}
             id="username"
             value={username}
             placeholder="username"
