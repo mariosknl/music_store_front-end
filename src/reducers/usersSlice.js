@@ -3,20 +3,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 import userActions from '../actionCreators/userActions';
 
-const {
-  checkUser, userRegistration, logoutUser, loginUser,
-} = userActions;
+const { checkUser, userRegistration, logoutUser, loginUser } = userActions;
 
 const defaultState = {
   username: '',
-  admin: false,
 };
 
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
-    username: '',
-    admin: false,
+    currentUser: '',
+    status: 'idle',
+    profile_type: '',
   },
   reducers: {
     setUsername: (state, action) => {
@@ -28,13 +26,11 @@ const usersSlice = createSlice({
     [userRegistration.pending]: state => {
       state.status = 'loading';
     },
-    [userRegistration.fulfilled]: (state, action) => {
-      state.status = 'succeeded';
-      if (action.payload.user) {
-        state.username = action.payload.user.username;
-        state.admin = action.payload.user.admin;
-      }
-    },
+    [userRegistration.fulfilled]: (state, action) => ({
+      ...state,
+      status: 'fulfilled',
+      currentUser: action.payload,
+    }),
     [userRegistration.rejected]: (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
@@ -42,23 +38,38 @@ const usersSlice = createSlice({
     [checkUser.pending]: state => {
       state.status = 'loading';
     },
-    [checkUser.fulfilled]: (state, action) => {
-      state.status = 'fulfilled';
-      if (action.payload.user) {
-        state.username = action.payload.user.username;
-        state.admin = action.payload.user.admin;
-      }
-    },
+    // [checkUser.fulfilled]: (state, action) => {
+    //   if (action.payload.guest) {
+    //     return {
+    //       ...state,
+    //       status: 'fulfilled',
+    //       currentUser: { guest: action.payload.user },
+    //     };
+    //   }
+    //   if (action.payload.message === 'Wrong email or password') {
+    //     return {
+    //       ...state,
+    //       status: 'rejected',
+    //       checkUser: action.payload,
+    //     };
+    //   }
+    // },
     [checkUser.rejected]: (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
     },
+    [loginUser.pending]: state => {
+      state.status = 'loading';
+    },
+    [loginUser.rejected]: state => {
+      state.error = 'Error with your info';
+      state.state = 'wrong';
+    },
+
     [loginUser.fulfilled]: (state, action) => {
       state.status = 'fulfilled';
-      if (action.payload.user) {
-        state.username = action.payload.user.username;
-        state.admin = action.payload.user.admin;
-      }
+      state.currentUser = action.payload.username;
+      state.profile_type = action.payload.profile_type;
     },
     [logoutUser.fulfilled]: () => defaultState,
   },

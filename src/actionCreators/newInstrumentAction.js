@@ -6,7 +6,7 @@ const createInstruments = createAsyncThunk(
   async args => {
     const options = {
       method: 'POST',
-      url: 'https://emusicstoreback.herokuapp.com/api/v1/instruments/create',
+      url: 'http://localhost:3000/api/v1/instruments/create',
       data: args,
     };
     const response = await axios(options);

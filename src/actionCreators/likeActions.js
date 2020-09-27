@@ -6,8 +6,10 @@ const createLike = createAsyncThunk('likes/instruments', async args => {
     method: 'POST',
     url: `http://localhost:3000/api/v1/instruments/${args}/likes`,
     data: args,
+    credentials: 'include',
   };
   const response = await axios(options);
+  console.log(response.data);
   return response.data;
 });
 

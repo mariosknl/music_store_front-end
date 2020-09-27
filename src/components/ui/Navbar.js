@@ -7,12 +7,13 @@ import { IconContext } from 'react-icons/lib';
 
 import logUser from '../../actionCreators/userActions';
 import '../../styles/Navbar.css';
+import { current } from '@reduxjs/toolkit';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
-  const username = useSelector(state => state.users);
+  const currentUser = useSelector(state => state.users);
 
   const list = useSelector(state => state.list.list);
   const dispatch = useDispatch();
@@ -63,7 +64,7 @@ const Navbar = () => {
           </button>
         </div>
         <ul className={click ? 'nav-menu active mr-12' : 'nav-menu mr-12'}>
-          {username.username === '' ? (
+          {currentUser === '' ? (
             <li className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center my-2">
               <Link
                 to="/signup"
@@ -91,7 +92,7 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-          {username.username.length !== 0 ? (
+          {currentUser.length !== 0 ? (
             <li>
               <Link
                 to="/mainpage"
@@ -115,7 +116,7 @@ const Navbar = () => {
               </Link>
             </li>
           )}
-          {username.admin ? (
+          {currentUser ? (
             <>
               <li>
                 <Link
