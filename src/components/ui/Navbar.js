@@ -12,8 +12,7 @@ const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
-  const user = useSelector(state => state.users);
-  const { profileType, currentUser } = user;
+  const { profileType, currentUser } = useSelector(state => state.users);
 
   const list = useSelector(state => state.list.list);
   const dispatch = useDispatch();

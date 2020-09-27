@@ -3,7 +3,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import userActions from '../actionCreators/userActions';
 
-const { checkUser, userRegistration, logoutUser, loginUser } = userActions;
+const {
+  checkUser, userRegistration, logoutUser, loginUser,
+} = userActions;
 
 const defaultState = {
   currentUser: '',
@@ -17,6 +19,7 @@ const usersSlice = createSlice({
     currentUser: '',
     status: 'idle',
     profileType: '',
+    message: '',
   },
   reducers: {
     setUsername: (state, action) => {
@@ -40,22 +43,13 @@ const usersSlice = createSlice({
     [checkUser.pending]: state => {
       state.status = 'loading';
     },
-    // [checkUser.fulfilled]: (state, action) => {
-    //   if (action.payload.guest) {
-    //     return {
-    //       ...state,
-    //       status: 'fulfilled',
-    //       currentUser: { guest: action.payload.user },
-    //     };
-    //   }
-    //   if (action.payload.message === 'Wrong email or password') {
-    //     return {
-    //       ...state,
-    //       status: 'rejected',
-    //       checkUser: action.payload,
-    //     };
-    //   }
-    // },
+    [checkUser.fulfilled]: (state, action) => {
+      state.currentUser = action.payload.username;
+      state.profile_type = action.payload.profile_type;
+      if (action.payload.message) {
+        state.currentUser = '';
+      }
+    },
     [checkUser.rejected]: (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
