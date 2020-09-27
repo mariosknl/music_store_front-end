@@ -3,12 +3,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import userActions from '../actionCreators/userActions';
 
-const {
-  checkUser, userRegistration, logoutUser, loginUser,
-} = userActions;
+const { checkUser, userRegistration, logoutUser, loginUser } = userActions;
 
 const defaultState = {
-  username: '',
+  currentUser: '',
+  status: 'idle',
+  profileType: '',
 };
 
 const usersSlice = createSlice({
@@ -16,7 +16,7 @@ const usersSlice = createSlice({
   initialState: {
     currentUser: '',
     status: 'idle',
-    profile_type: '',
+    profileType: '',
   },
   reducers: {
     setUsername: (state, action) => {
@@ -71,7 +71,7 @@ const usersSlice = createSlice({
     [loginUser.fulfilled]: (state, action) => {
       state.status = 'fulfilled';
       state.currentUser = action.payload.username;
-      state.profile_type = action.payload.profile_type;
+      state.profileType = action.payload.profile_type;
     },
     [logoutUser.fulfilled]: () => defaultState,
   },
