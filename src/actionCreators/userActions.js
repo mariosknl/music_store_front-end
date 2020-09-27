@@ -20,7 +20,6 @@ const loginUser = createAsyncThunk('user/login', async args => {
     data: args,
   };
   const response = await axios(options);
-  console.log(response.data);
   return response.data;
 });
 

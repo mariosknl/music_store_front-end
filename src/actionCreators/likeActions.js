@@ -9,7 +9,6 @@ const createLike = createAsyncThunk('likes/instruments', async args => {
     credentials: 'include',
   };
   const response = await axios(options);
-  console.log(response.data);
   return response.data;
 });
 

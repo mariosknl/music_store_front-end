@@ -7,7 +7,6 @@ import { IconContext } from 'react-icons/lib';
 
 import logUser from '../../actionCreators/userActions';
 import '../../styles/Navbar.css';
-import { current } from '@reduxjs/toolkit';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
