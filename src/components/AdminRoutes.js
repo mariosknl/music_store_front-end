@@ -17,8 +17,6 @@ const AdminRoutes = () => {
   const snares = useSelector(state => state.snares.snares);
   const cymbals = useSelector(state => state.cymbals.cymbals);
 
-  console.log(bassGuitars[0]);
-
   const listArr = [
     bassGuitars[0],
     guitars[0],

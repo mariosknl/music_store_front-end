@@ -9,9 +9,16 @@ import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 import { projectStorage } from '../../../firebase/config';
 import newInst from '../../../actionCreators/newInstrumentAction';
 import fetchInstruments from '../../../actionCreators/instrumentActions';
+import fetchBassGuitars from '../../../actionCreators/bassGuitarActions';
+import fetchGuitars from '../../../actionCreators/guitarActions';
+import fetchDrumkits from '../../../actionCreators/drumkitActions';
+import fetchSnares from '../../../actionCreators/snareActions';
+import fetchCymbals from '../../../actionCreators/cymbalActions';
+
 import ProgressBar from './ProgressBar';
 
 const InstrumentForm = props => {
@@ -28,7 +35,6 @@ const InstrumentForm = props => {
   const initVals = {};
 
   fields.forEach(field => (initVals[field] = ''));
-  console.log(fields);
 
   const formik = useFormik({
     initialValues: {
@@ -69,6 +75,11 @@ const InstrumentForm = props => {
               };
               dispatch(createInstruments(instrumentsObj));
               dispatch(fetchInstruments());
+              dispatch(fetchGuitars());
+              dispatch(fetchBassGuitars());
+              dispatch(fetchDrumkits());
+              dispatch(fetchSnares());
+              dispatch(fetchCymbals());
               setRedirect(true);
             });
         },
@@ -90,13 +101,11 @@ const InstrumentForm = props => {
     }
   };
 
-  console.log(fields);
   return (
     <>
       <form
         onSubmit={formik.handleSubmit}
-        className="bg-gray-400 shadow-md rounded px-8 py-6 mb-4 w-3/4 mx-auto mt-8 flex flex-col"
-      >
+        className="bg-gray-400 shadow-md rounded px-8 py-6 mb-4 w-3/4 mx-auto mt-8 flex flex-col">
         {fields.map(field => (
           <div key={uuidv4()}>
             {field === 'image_url' || field === 'id' ? (
@@ -125,8 +134,7 @@ const InstrumentForm = props => {
         {file && <ProgressBar file={imageAsFile} setFile={setImageAsFile} />}
         <button
           type="submit"
-          className="bg-gray-200 hover:bg-gray-700 w-1/5 mx-auto rounded py-1 text-bold hover:text-gray-200"
-        >
+          className="bg-gray-200 hover:bg-gray-700 w-1/5 mx-auto rounded py-1 text-bold hover:text-gray-200">
           Add
         </button>
       </form>
