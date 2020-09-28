@@ -10,9 +10,9 @@ import Input from './Input';
 import Button from './Button';
 
 const Form = ({ formik, signup, text }) => {
-  const { username, password, password_confirmation } = formik.values;
+  const { username, password, email } = formik.values;
   const { handleSubmit, handleChange, handleBlur } = formik;
-  const error = useSelector(state => state.users.error);
+  const { error } = useSelector(state => state.users);
 
   const [redirect, setRedirect] = useState(false);
 
@@ -20,10 +20,25 @@ const Form = ({ formik, signup, text }) => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 h-48"
-      >
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 h-48">
+        {signup ? (
+          <label htmlFor="email">
+            <Input
+              type="email"
+              password_confirmation={email}
+              id="email"
+              value={email}
+              placeholder="Email Address"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {formik.errors.email && <p>{formik.errors.email}</p>}
+          </label>
+        ) : (
+          ''
+        )}
+
         <label htmlFor="username">
-          Username
           <Input
             type="text"
             username={username}
@@ -33,7 +48,7 @@ const Form = ({ formik, signup, text }) => {
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          {formik.errors.username ? <>{formik.errors.username}</> : ''}
+          {formik.errors.username && <p>{formik.errors.username}</p>}
         </label>
 
         <label htmlFor="password">
@@ -49,32 +64,18 @@ const Form = ({ formik, signup, text }) => {
           {formik.errors.password ? <>{formik.errors.password}</> : ''}
         </label>
 
-        {signup ? (
-          <label htmlFor="password_confirmation">
-            <Input
-              type="password"
-              password_confirmation={password_confirmation}
-              id="password_confirmation"
-              value={password_confirmation}
-              placeholder="Password Confirmation"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            {formik.errors.password_confirmation ? (
-              <>{formik.errors.password_confirmation}</>
-            ) : (
-              ''
-            )}
-          </label>
-        ) : (
-          ''
-        )}
         <br />
         <Button text={text} />
+        <br />
+        <div className="text-center font-bold text-xl">
+          {error && <p>{error}</p>}
+        </div>
       </form>
-      <div className="error">{error ? <p>{error}</p> : ''}</div>
+      {/* {error.length !== 0
+        ? ((<p>{error}</p>), setRedirect(false))
+        : setRedirect(true)} */}
       {/* {error === '' ? setRedirect(false) : setRedirect(true)} */}
-      {redirect ? <Redirect to="/mainpage" /> : ''}
+      {/* {redirect ? <Redirect to="/mainpage" /> : ''} */}
     </>
   );
 };

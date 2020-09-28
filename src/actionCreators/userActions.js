@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const userRegistration = createAsyncThunk('users/signup', async args => {
+export const userRegistration = createAsyncThunk('users/signup', async args => {
   const options = {
     method: 'POST',
     url: 'http://localhost:3000/signup',
@@ -12,7 +12,7 @@ const userRegistration = createAsyncThunk('users/signup', async args => {
   return response.data;
 });
 
-const loginUser = createAsyncThunk('user/login', async args => {
+export const loginUser = createAsyncThunk('user/login', async args => {
   const options = {
     method: 'POST',
     url: 'http://localhost:3000/login',
@@ -34,7 +34,7 @@ const logoutUser = createAsyncThunk('user/logout', async () => {
   return '';
 });
 
-const checkUser = createAsyncThunk('user/logged', async () => {
+export const checkUser = createAsyncThunk('user/logged', async () => {
   const options = {
     method: 'GET',
     url: 'http://localhost:3000/loggeduser',

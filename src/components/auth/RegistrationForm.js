@@ -5,17 +5,29 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { Redirect } from 'react-router-dom';
-import userRegister from '../../actionCreators/userActions';
+import {
+  userRegistration,
+  loginUser,
+  checkUser,
+} from '../../actionCreators/userActions';
+
 import Form from '../ui/Form';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
-  const { userRegistration, checkUser } = userRegister;
 
   const formik = useFormik({
-    initialValues: { username: '', password: '', password_confirmation: '' },
+    initialValues: {
+      email: '',
+      username: '',
+      password: '',
+      password_confirmation: '',
+    },
     validationSchema: Yup.object({
+      email: Yup.string()
+        .email('It needs to be a valid email')
+        .required("It can't be empty"),
       username: Yup.string()
         .min(6, 'Needs to be at least 6 characters')
         .required('Cannot be empty'),
@@ -26,21 +38,20 @@ const RegistrationForm = () => {
           /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
           'Must contain 8 characters, One Uppercase, One Lowercase, One Number',
         ),
-      password_confirmation: Yup.string().oneOf(
-        [Yup.ref('password'), null],
-        'Password must match',
-      ),
     }),
     onSubmit: values => {
-      const { username, password, password_confirmation } = values;
+      const { username, password, email } = values;
       const userObj = {
         user: {
-          username,
+          email,
           password,
-          password_confirmation,
+        },
+        guest: {
+          username,
         },
       };
       dispatch(userRegistration(userObj));
+      dispatch(loginUser(userObj));
       dispatch(checkUser(userObj));
       setRedirect(true);
     },
@@ -48,10 +59,10 @@ const RegistrationForm = () => {
 
   return (
     <>
-      {redirect ? <Redirect to="/mainpage" /> : ''}
       <div className="w-full max-w-xs mx-auto mt-8">
         <Form formik={formik} signup text="Sign Up" />
       </div>
+      {redirect && <Redirect to="/mainpage" />}
     </>
   );
 };
