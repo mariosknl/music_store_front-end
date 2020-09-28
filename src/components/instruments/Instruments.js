@@ -16,13 +16,11 @@ const Instruments = () => {
             <div className="lg:items-center">
               <img
                 src={`${instrument.details.image_url}`}
-                className="block h-32 w-full rounded-md"
+                className="h-32 w-full rounded-md"
                 alt={instrument.details.name}
               />
               <div className="mt-6 font-bold text-center shadow-lg rounded-lg bg-gray-400">
-                <p key={uuidv4()} className="">
-                  {instrument.details.name}
-                </p>
+                <p>{instrument.details.name}</p>
               </div>
             </div>
           </div>

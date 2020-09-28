@@ -9,7 +9,7 @@ import LikeButton from '../ui/Like';
 
 function InstrumentInfo({ name }) {
   const instrument = useSelector(state => state[name][name]);
-  const currentUser = useSelector(state => state.users);
+  const { currentUser } = useSelector(state => state.users);
 
   if (instrument.length === 0) {
     return '';
@@ -27,28 +27,20 @@ function InstrumentInfo({ name }) {
             className="w-full md:w-3/4 my-4 mx-auto rounded bg-white h-32 sm:h-32 md:h-64 lg:h-xxl"
             alt="instrument_image"
           />
-          {ins.strings ? (
+          {ins.strings && (
             <p>
               Strings:
               {ins.strings}
             </p>
-          ) : (
-            ''
           )}
-          {ins.category ? (
+          {ins.category && (
             <span>
               Category:
               {ins.category}
             </span>
-          ) : (
-            ''
           )}
           <br />
-          {currentUser && instrument.length !== 0 ? (
-            <LikeButton id={ins.id} />
-          ) : (
-            ''
-          )}
+          {currentUser && instrument.length !== 0(<LikeButton id={ins.id} />)}
         </div>
       ))}
     </div>
