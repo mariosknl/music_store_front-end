@@ -77,14 +77,14 @@ const Navbar = () => {
           ) : (
             ''
           )}
-          <li className="nav-item text-gray-500 hover:text-white font-bold uppercase flex justify-center items-center ml-2">
+          <li className="nav-item text-gray-500 hover:text-white font-bold uppercase flex justify-center items-center ml-1">
             <Link to="/mainpage" onClick={closeMobileMenu}>
               Homepage
             </Link>
           </li>
           {list.map(item => (
             <li
-              className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-2"
+              className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-1"
               key={item}>
               <Link to={`/instruments/${item}`} onClick={closeMobileMenu}>
                 {item}
@@ -95,7 +95,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/mainpage"
-                className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-2"
+                className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-1"
                 onClick={() => {
                   dispatch(logoutUser());
                   closeMobileMenu();
@@ -110,7 +110,7 @@ const Navbar = () => {
                 onClick={() => {
                   closeMobileMenu();
                 }}
-                className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-2">
+                className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-1">
                 Login
               </Link>
             </li>
@@ -121,7 +121,7 @@ const Navbar = () => {
                 <Link
                   to="/instrument_form/0"
                   onClick={closeMobileMenu}
-                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
+                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none md:text-base">
                   Create BassGuitars
                 </Link>
               </li>
@@ -129,7 +129,7 @@ const Navbar = () => {
                 <Link
                   to="/instrument_form/1"
                   onClick={closeMobileMenu}
-                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
+                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none md:text-base">
                   Create Guitars
                 </Link>
               </li>
@@ -137,7 +137,7 @@ const Navbar = () => {
                 <Link
                   to="/instrument_form/2"
                   onClick={closeMobileMenu}
-                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
+                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none md:text-base">
                   Create Drumkits
                 </Link>
               </li>
@@ -145,7 +145,7 @@ const Navbar = () => {
                 <Link
                   to="/instrument_form/3"
                   onClick={closeMobileMenu}
-                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
+                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none md:text-base">
                   Create Snares
                 </Link>
               </li>
@@ -153,7 +153,7 @@ const Navbar = () => {
                 <Link
                   to="/instrument_form/4"
                   onClick={closeMobileMenu}
-                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none mx-3">
+                  className="block text-gray-500 hover:text-white focus:text-white focus:outline-none md:text-base">
                   Create Cymbals
                 </Link>
               </li>
