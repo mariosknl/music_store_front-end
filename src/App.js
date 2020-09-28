@@ -17,7 +17,7 @@ import fetchCymbals from './actionCreators/cymbalActions';
 function App() {
   const dispatch = useDispatch();
   const { checkUser } = curUser;
-  const signed = useSelector(state => state.users);
+  const profileType = useSelector(state => state.users.profileType);
 
   useEffect(() => {
     dispatch(checkUser());
@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      {signed.admin ? <AdminRoutes /> : <RouteFile />}
+      {profileType === 'Admin' ? <AdminRoutes /> : <RouteFile />}
     </div>
   );
 }

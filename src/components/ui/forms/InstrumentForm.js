@@ -28,6 +28,7 @@ const InstrumentForm = props => {
   const initVals = {};
 
   fields.forEach(field => (initVals[field] = ''));
+  console.log(fields);
 
   const formik = useFormik({
     initialValues: {
@@ -89,6 +90,7 @@ const InstrumentForm = props => {
     }
   };
 
+  console.log(fields);
   return (
     <>
       <form
@@ -97,7 +99,7 @@ const InstrumentForm = props => {
       >
         {fields.map(field => (
           <div key={uuidv4()}>
-            {field === 'image_url' ? (
+            {field === 'image_url' || field === 'id' ? (
               ''
             ) : (
               <input

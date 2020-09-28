@@ -1,14 +1,21 @@
 /* eslint-disable camelcase */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+
 import Input from './Input';
 import Button from './Button';
 
 const Form = ({ formik, signup, text }) => {
   const { username, password, password_confirmation } = formik.values;
   const { handleSubmit, handleChange, handleBlur } = formik;
+  const error = useSelector(state => state.users.error);
+
+  const [redirect, setRedirect] = useState(false);
+
   return (
     <>
       <form
@@ -65,6 +72,9 @@ const Form = ({ formik, signup, text }) => {
         <br />
         <Button text={text} />
       </form>
+      <div className="error">{error ? <p>{error}</p> : ''}</div>
+      {/* {error === '' ? setRedirect(false) : setRedirect(true)} */}
+      {redirect ? <Redirect to="/mainpage" /> : ''}
     </>
   );
 };

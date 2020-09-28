@@ -19,13 +19,13 @@ const usersSlice = createSlice({
     currentUser: '',
     status: 'idle',
     profileType: '',
-    message: '',
+    error: '',
   },
   reducers: {
-    setUsername: (state, action) => {
-      const value = action.payload;
-      state.username = value;
-    },
+    // setUsername: (state, action) => {
+    //   const value = action.payload;
+    //   state.username = value;
+    // },
   },
   extraReducers: {
     [userRegistration.pending]: state => {
@@ -45,7 +45,7 @@ const usersSlice = createSlice({
     },
     [checkUser.fulfilled]: (state, action) => {
       state.currentUser = action.payload.username;
-      state.profile_type = action.payload.profile_type;
+      state.profileType = action.payload.profile_type;
       if (action.payload.message) {
         state.currentUser = '';
       }
@@ -59,7 +59,6 @@ const usersSlice = createSlice({
     },
     [loginUser.rejected]: state => {
       state.error = 'Error with your info';
-      state.state = 'wrong';
     },
 
     [loginUser.fulfilled]: (state, action) => {

@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { Redirect } from 'react-router-dom';
+
 import userLog from '../../actionCreators/userActions';
 import Form from '../ui/Form';
 
 const LoginForm = () => {
-  const [redirect, setRedirect] = useState(false);
+  // const [redirect, setRedirect] = useState(false);
   const dispatch = useDispatch();
   const { loginUser } = userLog;
+  // const error = useSelector(state => state.users.error);
 
   const formik = useFormik({
     initialValues: { username: '', password: '' },
@@ -33,21 +34,18 @@ const LoginForm = () => {
           username,
           password,
         },
-        guest: {
+        admin: {
           username,
         },
       };
       dispatch(loginUser(userObj));
-      setRedirect(true);
     },
   });
 
   return (
     <>
-      {redirect ? <Redirect to="/mainpage" /> : ''}
       <div className="w-full max-w-xs mx-auto mt-8">
         <Form formik={formik} text="Login" signup={false} />
-        {redirect ? <Redirect to="/mainpage" /> : ''}
       </div>
     </>
   );
