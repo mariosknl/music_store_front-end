@@ -105,7 +105,8 @@ const InstrumentForm = props => {
     <>
       <form
         onSubmit={formik.handleSubmit}
-        className="bg-gray-400 shadow-md rounded px-8 py-6 mb-4 w-3/4 mx-auto mt-8 flex flex-col">
+        className="bg-gray-400 shadow-md rounded px-8 py-6 mb-4 w-3/4 mx-auto mt-8 flex flex-col"
+      >
         {fields.map(field => (
           <div key={uuidv4()}>
             {field === 'image_url' || field === 'id' ? (
@@ -134,7 +135,8 @@ const InstrumentForm = props => {
         {file && <ProgressBar file={imageAsFile} setFile={setImageAsFile} />}
         <button
           type="submit"
-          className="bg-gray-200 hover:bg-gray-700 w-1/5 mx-auto rounded py-1 text-bold hover:text-gray-200">
+          className="bg-gray-200 hover:bg-gray-700 w-1/5 mx-auto rounded py-1 text-bold hover:text-gray-200"
+        >
           Add
         </button>
       </form>

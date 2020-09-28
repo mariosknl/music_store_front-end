@@ -1,6 +1,7 @@
 .navbar {
   background: #1c2237;
   height: 80px;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,16 +13,12 @@
 
 .navbar-container {
   display: flex;
-  justify-content: space-around;
   height: 80px;
 }
 
 .container {
   z-index: 1;
-  width: 60%;
-  max-width: 1300px;
-  margin-right: auto;
-  margin-left: auto;
+  width: 10%;
 }
 
 .navbar-logo {

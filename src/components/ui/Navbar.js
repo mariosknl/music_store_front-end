@@ -54,7 +54,7 @@ const Navbar = () => {
             </svg>
           </Link>
         </div>
-        <div className="h-4 w-full xl:text-4xl font-bold md:pl-16 md:text-3xl sm:text-base text-white flex items-center">
+        <div className="h-4 w-1/6 xl:text-3xl font-bold md:text-2xl sm:text-base text-white">
           eMusic Store
         </div>
         <div className="menu-icon">
@@ -62,7 +62,7 @@ const Navbar = () => {
             {click ? <FaTimes /> : <FaBars />}
           </button>
         </div>
-        <ul className={click ? 'nav-menu active mr-12' : 'nav-menu mr-12'}>
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           {currentUser === '' ? (
             <li className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center my-2">
               <Link
