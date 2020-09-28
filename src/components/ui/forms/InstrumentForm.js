@@ -5,7 +5,6 @@
 /* eslint-disable operator-linebreak */
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -108,19 +107,21 @@ const InstrumentForm = props => {
         className="bg-gray-400 shadow-md rounded px-8 py-6 mb-4 w-3/4 mx-auto mt-8 flex flex-col"
       >
         {fields.map(field => (
-          <div key={uuidv4()}>
+          <div key={field}>
             {field === 'image_url' || field === 'id' ? (
               ''
             ) : (
-              <input
-                id={uuidv4()}
-                name={field}
-                type="text"
-                value={formik.values[field]}
-                onChange={formik.handleChange}
-                placeholder={field}
-                className="my-2 rounded pl-1"
-              />
+              <label htmlFor={field}>
+                {field}
+                <input
+                  name={field}
+                  type="text"
+                  onChange={formik.handleChange}
+                  value={formik.values[field]}
+                  placeholder={field}
+                  className="my-2 rounded pl-1"
+                />
+              </label>
             )}
           </div>
         ))}
