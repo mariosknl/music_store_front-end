@@ -34,7 +34,7 @@ const LoginForm = () => {
           username,
           password,
         },
-        admin: {
+        guest: {
           username,
         },
       };

@@ -58,7 +58,7 @@ const usersSlice = createSlice({
       state.status = 'loading';
     },
     [loginUser.rejected]: state => {
-      state.error = 'Error with your info';
+      state.error = 'Wrong email or password';
     },
 
     [loginUser.fulfilled]: (state, action) => {
