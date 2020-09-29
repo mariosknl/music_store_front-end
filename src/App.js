@@ -26,7 +26,7 @@ function App() {
     dispatch(fetchDrumkits());
     dispatch(fetchSnares());
     dispatch(fetchCymbals());
-  }, [dispatch, checkUser]);
+  }, [dispatch]);
 
   return (
     <div className="App">
