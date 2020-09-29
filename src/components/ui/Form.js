@@ -5,7 +5,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-// import { Redirect } from 'react-router-dom';
 import Input from './Input';
 import Button from './Button';
 
@@ -13,6 +12,10 @@ const Form = ({ formik, signup, text }) => {
   const { username, password, email } = formik.values;
   const { handleSubmit, handleChange, handleBlur } = formik;
   const { error } = useSelector(state => state.users);
+
+  if (!error) {
+    return null;
+  }
 
   return (
     <>

@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import { loginUser } from '../../actionCreators/userActions';
 import Form from '../ui/Form';
 
 const LoginForm = () => {
-  // const [redirect, setRedirect] = useState(false);
   const dispatch = useDispatch();
-  // const error = useSelector(state => state.users.error);
+  const [redirect, setRedirect] = useState(false);
 
   const formik = useFormik({
     initialValues: { username: '', password: '' },
@@ -27,7 +26,8 @@ const LoginForm = () => {
           'Must contain 8 characters, One Uppercase, One Lowercase, One Number',
         ),
     }),
-    onSubmit: values => {
+    onSubmit: (values, { resetForm }) => {
+      resetForm({ values: '' });
       const { username, password } = values;
       const userObj = {
         user: {
@@ -39,12 +39,13 @@ const LoginForm = () => {
         },
       };
       dispatch(loginUser(userObj));
-      // setRedirect(true);
+      setRedirect(true);
     },
   });
 
   return (
     <>
+      {redirect ? <Redirect to="/mainpage" /> : ''}
       <div className="w-full max-w-xs mx-auto mt-8">
         <Form formik={formik} text="Login" signup={false} />
       </div>

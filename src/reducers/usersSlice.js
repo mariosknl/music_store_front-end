@@ -12,6 +12,7 @@ const defaultState = {
   currentUser: '',
   status: 'idle',
   profileType: '',
+  error: [],
 };
 
 const usersSlice = createSlice({
@@ -20,7 +21,6 @@ const usersSlice = createSlice({
     currentUser: '',
     status: 'idle',
     profileType: '',
-    error: '',
   },
   reducers: {},
   extraReducers: {
@@ -54,6 +54,7 @@ const usersSlice = createSlice({
       state.status = 'loading';
     },
     [loginUser.rejected]: state => {
+      state.status = 'wrong';
       state.error = 'Wrong email or password';
     },
 
