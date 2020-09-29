@@ -40,7 +40,11 @@ function InstrumentInfo({ name }) {
             </span>
           )}
           <br />
-          {currentUser && instrument.length !== 0(<LikeButton id={ins.id} />)}
+          {currentUser && instrument.length !== 0 ? (
+            <LikeButton id={ins.id} />
+          ) : (
+            ''
+          )}
         </div>
       ))}
     </div>

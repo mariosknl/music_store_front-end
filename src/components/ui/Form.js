@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 
+// import { Redirect } from 'react-router-dom';
 import Input from './Input';
 import Button from './Button';
 
@@ -14,13 +14,12 @@ const Form = ({ formik, signup, text }) => {
   const { handleSubmit, handleChange, handleBlur } = formik;
   const { error } = useSelector(state => state.users);
 
-  const [redirect, setRedirect] = useState(false);
-
   return (
     <>
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 h-48">
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 h-48"
+      >
         {signup ? (
           <label htmlFor="email">
             <Input
@@ -61,7 +60,7 @@ const Form = ({ formik, signup, text }) => {
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          {formik.errors.password ? <>{formik.errors.password}</> : ''}
+          {formik.errors.password && <p>{formik.errors.password}</p>}
         </label>
 
         <br />
@@ -71,11 +70,6 @@ const Form = ({ formik, signup, text }) => {
           {error && <p>{error}</p>}
         </div>
       </form>
-      {/* {error.length !== 0
-        ? ((<p>{error}</p>), setRedirect(false))
-        : setRedirect(true)} */}
-      {/* {error === '' ? setRedirect(false) : setRedirect(true)} */}
-      {/* {redirect ? <Redirect to="/mainpage" /> : ''} */}
     </>
   );
 };

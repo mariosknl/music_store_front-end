@@ -5,7 +5,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 
-import logUser from '../../actionCreators/userActions';
+import { logoutUser, userRegistration } from '../../actionCreators/userActions';
 import '../../styles/Navbar.css';
 
 const Navbar = () => {
@@ -16,7 +16,6 @@ const Navbar = () => {
 
   const list = useSelector(state => state.list.list);
   const dispatch = useDispatch();
-  const { logoutUser, userRegistration } = logUser;
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);

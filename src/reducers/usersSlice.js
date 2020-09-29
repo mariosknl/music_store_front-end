@@ -1,11 +1,12 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import userActions from '../actionCreators/userActions';
-
-const {
-  checkUser, userRegistration, logoutUser, loginUser,
-} = userActions;
+import {
+  checkUser,
+  userRegistration,
+  logoutUser,
+  loginUser,
+} from '../actionCreators/userActions';
 
 const defaultState = {
   currentUser: '',
@@ -21,12 +22,7 @@ const usersSlice = createSlice({
     profileType: '',
     error: '',
   },
-  reducers: {
-    // setUsername: (state, action) => {
-    //   const value = action.payload;
-    //   state.username = value;
-    // },
-  },
+  reducers: {},
   extraReducers: {
     [userRegistration.pending]: state => {
       state.status = 'loading';

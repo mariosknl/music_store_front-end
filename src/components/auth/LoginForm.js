@@ -2,14 +2,14 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+// import { Redirect } from 'react-router-dom';
 
-import userLog from '../../actionCreators/userActions';
+import { loginUser } from '../../actionCreators/userActions';
 import Form from '../ui/Form';
 
 const LoginForm = () => {
   // const [redirect, setRedirect] = useState(false);
   const dispatch = useDispatch();
-  const { loginUser } = userLog;
   // const error = useSelector(state => state.users.error);
 
   const formik = useFormik({
@@ -39,6 +39,7 @@ const LoginForm = () => {
         },
       };
       dispatch(loginUser(userObj));
+      // setRedirect(true);
     },
   });
 

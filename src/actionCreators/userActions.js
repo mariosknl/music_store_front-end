@@ -23,7 +23,7 @@ export const loginUser = createAsyncThunk('user/login', async args => {
   return response.data;
 });
 
-const logoutUser = createAsyncThunk('user/logout', async () => {
+export const logoutUser = createAsyncThunk('user/logout', async () => {
   const options = {
     method: 'DELETE',
     url: 'http://localhost:3000/signout',
@@ -43,10 +43,3 @@ export const checkUser = createAsyncThunk('user/logged', async () => {
   const response = await axios(options);
   return response.data;
 });
-
-export default {
-  userRegistration,
-  loginUser,
-  logoutUser,
-  checkUser,
-};

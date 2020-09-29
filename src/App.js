@@ -6,7 +6,7 @@ import RouteFile from './components/RouteFile';
 import AdminRoutes from './components/AdminRoutes';
 import './App.css';
 
-import curUser from './actionCreators/userActions';
+import { checkUser } from './actionCreators/userActions';
 import fetchInstruments from './actionCreators/instrumentActions';
 import fetchBassGuitars from './actionCreators/bassGuitarActions';
 import fetchGuitars from './actionCreators/guitarActions';
@@ -16,7 +16,6 @@ import fetchCymbals from './actionCreators/cymbalActions';
 
 function App() {
   const dispatch = useDispatch();
-  const { checkUser } = curUser;
   const profileType = useSelector(state => state.users.profileType);
 
   useEffect(() => {

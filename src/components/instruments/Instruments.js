@@ -11,15 +11,15 @@ const Instruments = () => {
   return (
     <div className="flex flex-wrap p-6 rounded-lg shadow-xl">
       {instrumentsState[0].map(instrument => (
-        <div className="flex m-4 mx-auto rounded-lg h-56" key={uuidv4()}>
+        <div className="flex m-4 h-48 mx-auto rounded-lg h-56" key={uuidv4()}>
           <div className="max-w-sm flex p-6 bg-white rounded-lg shadow-xl">
-            <div className="lg:items-center">
+            <div className="lg:items-center flex-col">
               <img
                 src={`${instrument.details.image_url}`}
-                className="h-32 w-full rounded-md"
+                className="h-3/4 w-full flex-start rounded-md"
                 alt={instrument.details.name}
               />
-              <div className="mt-6 font-bold text-center shadow-lg rounded-lg bg-gray-400">
+              <div className="mt-6 h-1/4 font-bold flex-end text-center shadow-lg rounded-lg bg-gray-400">
                 <p>{instrument.details.name}</p>
               </div>
             </div>
