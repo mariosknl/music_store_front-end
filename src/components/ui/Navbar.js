@@ -103,16 +103,28 @@ const Navbar = () => {
               </Link>
             </li>
           ) : (
-            <li>
-              <Link
-                to="/login"
-                onClick={() => {
-                  closeMobileMenu();
-                }}
-                className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-1">
-                Login
-              </Link>
-            </li>
+            <>
+              <li>
+                <Link
+                  to="/login"
+                  onClick={() => {
+                    closeMobileMenu();
+                  }}
+                  className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-1">
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/login_admin"
+                  onClick={() => {
+                    closeMobileMenu();
+                  }}
+                  className="nav-item font-bold text-gray-500 hover:text-white uppercase text-white mx-auto justify-center flex items-center ml-1">
+                  Login[Admin]
+                </Link>
+              </li>
+            </>
           )}
           {profileType === 'Admin' ? (
             <>

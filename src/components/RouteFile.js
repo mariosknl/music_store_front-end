@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import MainPage from './MainPage';
 import RegistrationForm from './auth/RegistrationForm';
 import LoginForm from './auth/LoginForm';
+import LoginAdminForm from './auth/LoginAdminForm';
 import Homepage from './Homepage';
 import InstrumentInfo from './instruments/InstrumentInfo';
 
@@ -14,6 +15,7 @@ const RouteFile = () => {
   return (
     <Switch>
       <Route exact path="/login" component={LoginForm} />
+      <Route exact path="/login_admin" component={LoginAdminForm} />
       <Route path="/mainpage" component={MainPage} />
       <Route path="/signup" component={RegistrationForm} />
       {list.map(instrument => (
