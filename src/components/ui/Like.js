@@ -25,19 +25,20 @@ const LikeButton = props => {
   };
 
   const LikeIcon = () => {
-    if (Object.values(userLike).filter(el => el.id === id)) {
+    if (Object.values(userLike).some(el => el.instrument_id === id)) {
       return <AiFillHeart />;
     }
     return <AiOutlineLike />;
   };
+
   return (
     <button
       type="button"
       className="outline-none"
       onClick={() => {
+        handleClick();
         dispatch(createLike(id));
         dispatch(checkUser());
-        handleClick();
       }}
     >
       <LikeIcon />
