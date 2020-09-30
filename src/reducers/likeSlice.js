@@ -7,20 +7,14 @@ const likeSlice = createSlice({
   initialState: {
     likes: [],
   },
-  reducers: {
-    likes: {
-      reducer(state, action) {
-        state.likes.push(action.payload);
-      },
-    },
-  },
+  reducers: {},
   extraReducers: {
     [createLike.pending]: state => {
       state.status = 'loading';
     },
     [createLike.fulfilled]: (state, action) => {
       state.status = 'succeeded';
-      state.likes = [action.payload];
+      state.users.likes = [...action.payload];
     },
     [createLike.rejected]: (state, action) => {
       state.status = 'failed';

@@ -41,7 +41,7 @@ function InstrumentInfo({ name }) {
           )}
           <br />
           {currentUser && instrument.length !== 0 ? (
-            <LikeButton id={ins.id} />
+            <LikeButton id={ins.parent_id} />
           ) : (
             ''
           )}

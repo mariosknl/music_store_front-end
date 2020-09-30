@@ -13,6 +13,7 @@ const defaultState = {
   status: 'idle',
   profileType: '',
   error: [],
+  likes: [],
 };
 
 const usersSlice = createSlice({
@@ -21,6 +22,7 @@ const usersSlice = createSlice({
     currentUser: '',
     status: 'idle',
     profileType: '',
+    likes: [],
   },
   reducers: {},
   extraReducers: {
@@ -42,6 +44,8 @@ const usersSlice = createSlice({
     [checkUser.fulfilled]: (state, action) => {
       state.currentUser = action.payload.username;
       state.profileType = action.payload.profile_type;
+      state.likes = action.payload.likes;
+
       if (action.payload.message) {
         state.currentUser = '';
       }
@@ -62,6 +66,7 @@ const usersSlice = createSlice({
       state.status = 'fulfilled';
       state.currentUser = action.payload.username;
       state.profileType = action.payload.profile_type;
+      state.likes = action.payload.likes.likes;
     },
     [logoutUser.fulfilled]: () => defaultState,
   },
