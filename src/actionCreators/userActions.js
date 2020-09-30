@@ -4,7 +4,7 @@ import axios from 'axios';
 export const userRegistration = createAsyncThunk('users/signup', async args => {
   const options = {
     method: 'POST',
-    url: 'http://localhost:3000/signup',
+    url: 'https://emusicstoreapi.herokuapp.com/signup',
     withCredentials: true,
     data: args,
   };
@@ -15,7 +15,7 @@ export const userRegistration = createAsyncThunk('users/signup', async args => {
 export const loginUser = createAsyncThunk('user/login', async args => {
   const options = {
     method: 'POST',
-    url: 'http://localhost:3000/login',
+    url: 'https://emusicstoreapi.herokuapp.com/login',
     withCredentials: true,
     data: args,
   };
@@ -26,7 +26,7 @@ export const loginUser = createAsyncThunk('user/login', async args => {
 export const logoutUser = createAsyncThunk('user/logout', async () => {
   const options = {
     method: 'DELETE',
-    url: 'http://localhost:3000/signout',
+    url: 'https://emusicstoreapi.herokuapp.com/signout',
     withCredentials: true,
   };
 
@@ -37,7 +37,7 @@ export const logoutUser = createAsyncThunk('user/logout', async () => {
 export const checkUser = createAsyncThunk('user/logged', async () => {
   const options = {
     method: 'GET',
-    url: 'http://localhost:3000/loggeduser',
+    url: 'https://emusicstoreapi.herokuapp.com/loggeduser',
     withCredentials: true,
   };
   const response = await axios(options);

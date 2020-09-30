@@ -108,7 +108,9 @@ const InstrumentForm = props => {
       >
         {fields.map(field => (
           <div key={field}>
-            {field === 'image_url' || field === 'id' ? (
+            {field === 'image_url' ||
+            field === 'id' ||
+            field === 'parent_id' ? (
               ''
             ) : (
               <label htmlFor={field}>
@@ -119,7 +121,7 @@ const InstrumentForm = props => {
                   onChange={formik.handleChange}
                   value={formik.values[field]}
                   placeholder={field}
-                  className="my-2 rounded pl-1"
+                  className="my-2 rounded pl-1 ml-2"
                 />
               </label>
             )}
@@ -133,7 +135,9 @@ const InstrumentForm = props => {
         />
         {error && <div className="error">{error}</div>}
         {file && <div className="error">{file.name}</div>}
-        {file && <ProgressBar file={imageAsFile} setFile={setImageAsFile} />}
+        {imageAsFile && (
+          <ProgressBar file={imageAsFile} setFile={setImageAsFile} />
+        )}
         <button
           type="submit"
           className="bg-gray-200 hover:bg-gray-700 w-1/5 mx-auto rounded py-1 text-bold hover:text-gray-200"
