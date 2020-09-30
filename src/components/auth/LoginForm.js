@@ -39,7 +39,7 @@ const LoginForm = () => {
         },
       };
       dispatch(loginUser(userObj));
-      dispatch(checkUser());
+      dispatch(checkUser(userObj));
       setRedirect(true);
     },
   });

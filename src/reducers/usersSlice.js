@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 import {
@@ -71,7 +70,7 @@ const usersSlice = createSlice({
       state.status = 'fulfilled';
       state.currentUser = action.payload.username;
       state.profileType = action.payload.profile_type;
-      state.likes = action.payload.likes.likes;
+      state.likes = action.payload.likes;
     },
     [logoutUser.fulfilled]: () => defaultState,
   },
