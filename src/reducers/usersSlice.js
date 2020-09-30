@@ -42,12 +42,17 @@ const usersSlice = createSlice({
       state.status = 'loading';
     },
     [checkUser.fulfilled]: (state, action) => {
+      state.status = 'fulfilled';
       state.currentUser = action.payload.username;
       state.profileType = action.payload.profile_type;
       state.likes = action.payload.likes;
 
       if (action.payload.message) {
         state.currentUser = '';
+        state.currentUser = '';
+        state.profileType = '';
+        state.likes = [];
+        state.error = [];
       }
     },
     [checkUser.rejected]: (state, action) => {

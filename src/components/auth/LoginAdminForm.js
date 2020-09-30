@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { Redirect } from 'react-router-dom';
 
-import { checkUser, loginUser } from '../../actionCreators/userActions';
+import { loginUser } from '../../actionCreators/userActions';
 import Form from '../ui/Form';
 
 const LoginForm = () => {
@@ -34,12 +34,11 @@ const LoginForm = () => {
           username,
           password,
         },
-        guest: {
+        admin: {
           username,
         },
       };
       dispatch(loginUser(userObj));
-      dispatch(checkUser());
       setRedirect(true);
     },
   });
