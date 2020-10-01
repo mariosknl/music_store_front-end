@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 /* eslint-disable indent */
@@ -136,9 +135,7 @@ const InstrumentForm = props => {
         />
         {error && <div className="error">{error}</div>}
         {imageAsFile && <div className="error">{imageAsFile.name}</div>}
-        {imageAsFile && (
-          <ProgressBar file={imageAsFile} setFile={setImageAsFile} />
-        )}
+        {file && <ProgressBar file={setImageAsFile} setFile={setImageAsFile} />}
         <button
           type="submit"
           className="bg-gray-200 hover:bg-gray-700 w-1/5 mx-auto rounded py-1 text-bold hover:text-gray-200"
