@@ -9,6 +9,20 @@ import { motion } from 'framer-motion';
 import { logoutUser, userRegistration } from '../../actionCreators/userActions';
 import '../../styles/Navbar.css';
 
+const containerVariants = {
+  hidden: {
+    opacity: 0.5,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      delay: 1,
+      duration: 1.2,
+    },
+  },
+};
+
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -39,9 +53,9 @@ const Navbar = () => {
     <IconContext.Provider value={{ color: '#fff' }}>
       <motion.nav
         className="navbar"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1.5 }}>
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible">
         <div className="navbar-container container">
           <Link to="/" onClick={closeMobileMenu} className="navbar-logo">
             <svg

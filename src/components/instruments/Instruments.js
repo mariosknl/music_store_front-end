@@ -3,6 +3,21 @@ import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { motion } from 'framer-motion';
 
+const instrumentVariants = {
+  hidden: {
+    opacity: 0,
+    x: '100vw',
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: 1,
+      duration: 1.2,
+    },
+  },
+};
+
 const Instruments = () => {
   const instrumentsState = useSelector(state => state.instruments.instruments);
   if (instrumentsState.length === 0) {
@@ -14,8 +29,9 @@ const Instruments = () => {
       {instrumentsState[0].map(instrument => (
         <motion.div
           className="flex m-4 h-48 mx-auto rounded-lg h-56"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          variants={instrumentVariants}
+          initial="hidden"
+          animate="visible"
           key={uuidv4()}
         >
           <div className="max-w-sm flex p-6 bg-white rounded-lg shadow-xl">

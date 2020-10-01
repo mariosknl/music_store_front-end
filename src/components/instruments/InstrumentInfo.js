@@ -2,10 +2,28 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable function-paren-newline */
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import LikeButton from '../ui/Like';
+
+const instrumentVariants = {
+  hidden: {
+    opacity: 0,
+    x: '100vw',
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: 'spring',
+      mass: 1,
+      damping: 10,
+      when: 'beforeChildren',
+    },
+  },
+};
 
 function InstrumentInfo({ name }) {
   const instrument = useSelector(state => state[name][name]);
@@ -18,7 +36,10 @@ function InstrumentInfo({ name }) {
   return (
     <div className="w-full mx-auto mt-4 font-bold text-center">
       {instrument[0].map(ins => (
-        <div
+        <motion.div
+          variants={instrumentVariants}
+          initial="hidden"
+          animate="visible"
           key={uuidv4()}
           className="w-3/4 overflow-hidden mx-auto text-center">
           <p className="mt-4 lg:text-3xl md:text-2xl underline">{ins.name}</p>
@@ -45,7 +66,7 @@ function InstrumentInfo({ name }) {
           ) : (
             ''
           )}
-        </div>
+        </motion.div>
       ))}
     </div>
   );

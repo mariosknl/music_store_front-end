@@ -5,12 +5,13 @@
 }
 
 body {
-  background: linear-gradient(
-    90deg,
-    rgba(75, 58, 52, 1) 0%,
-    rgba(135, 134, 189, 1) 52%,
-    rgba(75, 58, 52, 1) 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      rgba(75, 58, 52, 1) 0%,
+      rgba(135, 134, 189, 1) 52%,
+      rgba(75, 58, 52, 1) 100%
+    );
 }
 
 .homepage {
