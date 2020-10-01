@@ -12,7 +12,7 @@ const ProgressBar = ({ file, setFile }) => {
     }
   }, [url, setFile]);
 
-  return <div className="progress-bar" style={{ width: `${progress} + %` }} />;
+  return <div className="progress-bar" style={{ width: `${progress}%` }} />;
 };
 
 ProgressBar.propTypes = {
