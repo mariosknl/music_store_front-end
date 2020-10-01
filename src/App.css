@@ -22,3 +22,15 @@ body {
   background-size: 100% 100%;
   position: relative;
 }
+
+.homepage .button {
+  position: absolute;
+  left: 50%;
+  top: 2rem;
+  width: 7rem;
+  font-weight: bold;
+  font-size: 2rem;
+  transform: translate(-50%);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

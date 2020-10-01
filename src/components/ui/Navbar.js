@@ -4,9 +4,24 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
+import { motion } from 'framer-motion';
 
 import { logoutUser, userRegistration } from '../../actionCreators/userActions';
 import '../../styles/Navbar.css';
+
+const containerVariants = {
+  hidden: {
+    opacity: 0.5,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      delay: 1,
+      duration: 1.2,
+    },
+  },
+};
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -36,7 +51,11 @@ const Navbar = () => {
 
   return (
     <IconContext.Provider value={{ color: '#fff' }}>
-      <nav className="navbar">
+      <motion.nav
+        className="navbar"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible">
         <div className="navbar-container container">
           <Link to="/" onClick={closeMobileMenu} className="navbar-logo">
             <svg
@@ -173,7 +192,7 @@ const Navbar = () => {
             ''
           )}
         </ul>
-      </nav>
+      </motion.nav>
     </IconContext.Provider>
   );
 };
