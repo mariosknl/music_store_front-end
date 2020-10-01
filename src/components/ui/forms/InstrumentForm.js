@@ -134,10 +134,8 @@ const InstrumentForm = props => {
           onChange={handleImage}
         />
         {error && <div className="error">{error}</div>}
-        {file && <div className="error">{file.name}</div>}
-        {imageAsFile && (
-          <ProgressBar file={imageAsFile} setFile={setImageAsFile} />
-        )}
+        {imageAsFile && <div className="error">{imageAsFile.name}</div>}
+        {file && <ProgressBar file={setImageAsFile} setFile={setImageAsFile} />}
         <button
           type="submit"
           className="bg-gray-200 hover:bg-gray-700 w-1/5 mx-auto rounded py-1 text-bold hover:text-gray-200"
