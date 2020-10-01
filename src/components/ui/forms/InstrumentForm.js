@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 /* eslint-disable indent */
@@ -134,7 +135,7 @@ const InstrumentForm = props => {
           onChange={handleImage}
         />
         {error && <div className="error">{error}</div>}
-        {file && <div className="error">{file.name}</div>}
+        {imageAsFile && <div className="error">{imageAsFile.name}</div>}
         {imageAsFile && (
           <ProgressBar file={imageAsFile} setFile={setImageAsFile} />
         )}
