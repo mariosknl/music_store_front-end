@@ -29,7 +29,6 @@ function App() {
     dispatch(fetchSnares());
     dispatch(fetchCymbals());
   }, [dispatch]);
-
   return (
     <div className="App">
       <Route exact path="/" component={Homepage} />
