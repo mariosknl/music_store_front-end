@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import { motion } from 'framer-motion';
 
 const Instruments = () => {
   const instrumentsState = useSelector(state => state.instruments.instruments);
@@ -11,7 +12,12 @@ const Instruments = () => {
   return (
     <div className="flex flex-wrap p-6 rounded-lg shadow-xl">
       {instrumentsState[0].map(instrument => (
-        <div className="flex m-4 h-48 mx-auto rounded-lg h-56" key={uuidv4()}>
+        <motion.div
+          className="flex m-4 h-48 mx-auto rounded-lg h-56"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          key={uuidv4()}
+        >
           <div className="max-w-sm flex p-6 bg-white rounded-lg shadow-xl">
             <div className="lg:items-center flex-col">
               <img
@@ -24,7 +30,7 @@ const Instruments = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

@@ -5,13 +5,12 @@
 }
 
 body {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(75, 58, 52, 1) 0%,
-      rgba(135, 134, 189, 1) 52%,
-      rgba(75, 58, 52, 1) 100%
-    );
+  background: linear-gradient(
+    90deg,
+    rgba(75, 58, 52, 1) 0%,
+    rgba(135, 134, 189, 1) 52%,
+    rgba(75, 58, 52, 1) 100%
+  );
 }
 
 .homepage {
@@ -21,4 +20,16 @@ body {
   background-position: center;
   background-size: 100% 100%;
   position: relative;
+}
+
+.homepage .button {
+  position: absolute;
+  left: 50%;
+  top: 2rem;
+  width: 7rem;
+  font-weight: bold;
+  font-size: 2rem;
+  transform: translate(-50%);
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
