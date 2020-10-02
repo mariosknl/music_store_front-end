@@ -31,7 +31,6 @@ function App() {
   return (
     <div className="App">
       <Route exact path="/" component={Homepage} />
-      {/* <Navbar /> */}
       {profileType === 'Admin' ? <AdminRoutes /> : <RouteFile />}
     </div>
   );
