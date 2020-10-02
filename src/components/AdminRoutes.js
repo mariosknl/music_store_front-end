@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import InstrumentInfo from './instruments/InstrumentInfo';
 import MainPage from './MainPage';
+import Navbar from './ui/Navbar';
 
 import InstrumentForm from './ui/forms/InstrumentForm';
 
@@ -41,24 +42,27 @@ const AdminRoutes = () => {
   }
 
   return (
-    <Switch>
-      {listArr.map((inst, idx) => (
-        <Route exact key={uuidv4()} path={`/instrument_form/${idx}`}>
-          <h3 className="font-bold text-2xl text-center">
-            {`Create new ${list[idx]}`}
-          </h3>
-          <InstrumentForm fields={Object.keys(inst[0])} type={list[idx]} />
-        </Route>
-      ))}
-      {list.map(instrument => (
-        <Route exact key={instrument} path={`/instruments/${instrument}`}>
-          <InstrumentInfo name={instrument} />
-        </Route>
-      ))}
+    <>
+      <Navbar />
+      <Switch>
+        {listArr.map((inst, idx) => (
+          <Route exact key={uuidv4()} path={`/instrument_form/${idx}`}>
+            <h3 className="font-bold text-2xl text-center">
+              {`Create new ${list[idx]}`}
+            </h3>
+            <InstrumentForm fields={Object.keys(inst[0])} type={list[idx]} />
+          </Route>
+        ))}
+        {list.map(instrument => (
+          <Route exact key={instrument} path={`/instruments/${instrument}`}>
+            <InstrumentInfo name={instrument} />
+          </Route>
+        ))}
 
-      <Route exact path="/mainpage" component={MainPage} />
-      <Route render={() => <h1>404: Page Not Found</h1>} />
-    </Switch>
+        <Route exact path="/mainpage" component={MainPage} />
+        <Route render={() => <h1>404: Page Not Found</h1>} />
+      </Switch>
+    </>
   );
 };
 

@@ -59,10 +59,10 @@ const RegistrationForm = () => {
 
   return (
     <>
+      {redirect && <Redirect to="/mainpage" />}
       <div className="w-full max-w-xs mx-auto mt-8">
         <Form formik={formik} signup text="Sign Up" />
       </div>
-      {redirect && <Redirect to="/mainpage" />}
     </>
   );
 };
