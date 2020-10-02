@@ -15,7 +15,9 @@ This repository is used for the front-end part of my application.
 - Redux/Toolkit
 - Axios
 - Formik
+- Yup
 - Chokidar-cli
+- Framer Motion
 - Npm-Run-All
 - React/Icons
 - React Router Dom
