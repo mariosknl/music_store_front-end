@@ -8,6 +8,7 @@ This repository is used for the front-end part of my application.
 ![Homepage](src/assets/homepage.png)
 ![Instrument Page](src/assets/instrument_info.png)
 ![Sign Up](src/assets/sign_up.png)
+![Redux State Img](src/assets/redux_state.png)
 
 # BUILD WITH
 
