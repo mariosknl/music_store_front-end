@@ -4,6 +4,11 @@ In this project, you can see the front-end side of my application using React & 
 
 This repository is used for the front-end part of my application.
 
+![Landing Page](src/assets/mainpage.png)
+![Homepage](src/assets/homepage.png)
+![Instrument Page](src/assets/instrument_info.png)
+![Sign Up](src/assets/sign_up.png)
+
 # BUILD WITH
 
 - ReactJS
