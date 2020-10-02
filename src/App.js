@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route } from 'react-router-dom';
 
 import Homepage from './components/Homepage';
-import Navbar from './components/ui/Navbar';
 import RouteFile from './components/RouteFile';
 import AdminRoutes from './components/AdminRoutes';
 import './App.css';
@@ -33,7 +32,6 @@ function App() {
   return (
     <div className="App">
       <Route exact path="/" component={Homepage} />
-      <Navbar />
       {profileType === 'Admin' ? <AdminRoutes /> : <RouteFile />}
     </div>
   );

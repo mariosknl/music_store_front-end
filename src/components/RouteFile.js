@@ -6,7 +6,6 @@ import MainPage from './MainPage';
 import RegistrationForm from './auth/RegistrationForm';
 import LoginForm from './auth/LoginForm';
 import LoginAdminForm from './auth/LoginAdminForm';
-import Homepage from './Homepage';
 import InstrumentInfo from './instruments/InstrumentInfo';
 
 const RouteFile = () => {
@@ -23,7 +22,6 @@ const RouteFile = () => {
           <InstrumentInfo name={instrument} />
         </Route>
       ))}
-      <Route exact path="/" component={Homepage} />
       <Route render={() => <h1>404: Page not Found</h1>} />
     </Switch>
   );

@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
-import Homepage from './Homepage';
 import InstrumentInfo from './instruments/InstrumentInfo';
 import MainPage from './MainPage';
 
@@ -58,7 +57,6 @@ const AdminRoutes = () => {
       ))}
 
       <Route exact path="/mainpage" component={MainPage} />
-      <Route exact path="/" component={Homepage} />
       <Route render={() => <h1>404: Page Not Found</h1>} />
     </Switch>
   );
