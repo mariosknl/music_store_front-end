@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import { motion } from 'framer-motion';
 
-import { logoutUser, userRegistration } from '../../actionCreators/userActions';
+import { logoutUser } from '../../actionCreators/userActions';
 import '../../styles/Navbar.css';
 
 const containerVariants = {
@@ -102,7 +102,6 @@ const Navbar = () => {
               <Link
                 to="/signup"
                 onClick={() => {
-                  dispatch(userRegistration());
                   closeMobileMenu();
                 }}>
                 Sign Up
