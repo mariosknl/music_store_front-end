@@ -6,7 +6,7 @@ const fetchInstruments = createAsyncThunk(
   async () => {
     const options = {
       method: 'GET',
-      url: 'https://emusicstoreapi.herokuapp.com/api/v1/instruments/index',
+      url: 'http://localhost:3000/api/v1/instruments/index',
     };
     const response = await axios(options);
     return response.data;

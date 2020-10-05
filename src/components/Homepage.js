@@ -39,8 +39,7 @@ const Homepage = () => (
       className="border-4 text-center w-1/3 mx-auto rounded-b-full py-5 px-2 absolute-center "
       variants={homepageContainer}
       initial="hidden"
-      animate="visible"
-    >
+      animate="visible">
       <h1 className="text-white w-full text-center text-2xl">
         Welcome to our Music Store
       </h1>
@@ -48,12 +47,10 @@ const Homepage = () => (
         variants={buttonVariants}
         animate="visible"
         whileHover="hover"
-        className="w-1/4 mx-auto rounded mt-1"
-      >
+        className="w-2/4 mx-auto rounded mt-1">
         <Link
           to="/mainpage"
-          className="text-black mx-auto font-bold text-2xl bg-gray-200 rounded px-2 hover:text-white hover:bg-black"
-        >
+          className="text-black mx-auto font-bold text-2xl bg-gray-200 rounded px-2 hover:text-white hover:bg-black">
           Enter
         </Link>
       </motion.div>
