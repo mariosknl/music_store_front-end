@@ -8,6 +8,7 @@ import RegistrationForm from './auth/RegistrationForm';
 import LoginForm from './auth/LoginForm';
 import LoginAdminForm from './auth/LoginAdminForm';
 import InstrumentInfo from './instruments/InstrumentInfo';
+import Homepage from './Homepage';
 
 const RouteFile = () => {
   const list = useSelector(state => state.list.list);
@@ -16,6 +17,8 @@ const RouteFile = () => {
     <>
       <Navbar />
       <Switch>
+        <Route exact path="/" component={Homepage} />
+        <Route exact path="/mainpage" component={MainPage} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/login_admin" component={LoginAdminForm} />
         <Route path="/mainpage" component={MainPage} />

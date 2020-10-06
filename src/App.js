@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route } from 'react-router-dom';
 
-import Homepage from './components/Homepage';
 import RouteFile from './components/RouteFile';
 import AdminRoutes from './components/AdminRoutes';
 import './App.css';
@@ -17,7 +15,7 @@ import fetchCymbals from './actionCreators/cymbalActions';
 
 function App() {
   const dispatch = useDispatch();
-  const profileType = useSelector(state => state.users.profileType);
+  const { profileType } = useSelector(state => state.users);
 
   useEffect(() => {
     dispatch(checkUser());
@@ -30,7 +28,6 @@ function App() {
   }, [dispatch]);
   return (
     <div className="App">
-      <Route exact path="/" component={Homepage} />
       {profileType === 'Admin' ? <AdminRoutes /> : <RouteFile />}
     </div>
   );
