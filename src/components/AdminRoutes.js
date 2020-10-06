@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
 import InstrumentInfo from './instruments/InstrumentInfo';
-import MainPage from './MainPage';
-import Navbar from './ui/Navbar';
+// import MainPage from './MainPage';
+// import Navbar from './ui/Navbar';
 
 import InstrumentForm from './ui/forms/InstrumentForm';
 
@@ -43,7 +43,6 @@ const AdminRoutes = () => {
 
   return (
     <>
-      <Navbar />
       <Switch>
         {listArr.map((inst, idx) => (
           <Route exact key={uuidv4()} path={`/instrument_form/${idx}`}>
@@ -59,7 +58,6 @@ const AdminRoutes = () => {
           </Route>
         ))}
 
-        <Route exact path="/mainpage" component={MainPage} />
         <Route render={() => <h1>404: Page Not Found</h1>} />
       </Switch>
     </>
