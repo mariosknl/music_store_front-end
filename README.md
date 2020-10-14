@@ -10,6 +10,9 @@ This repository is used for the front-end part of my application.
 ![Sign Up](src/assets/sign_up.png)
 ![Redux State Img](src/assets/redux_state.png)
 
+<!--START_SECTION:waka-->
+<!--END_SECTION:waka-->
+
 # BUILD WITH
 
 - ReactJS
