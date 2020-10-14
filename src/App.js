@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import RouteFile from './components/RouteFile';
+import AdminRoutes from './components/AdminRoutes';
 import './App.css';
 
+import { checkUser } from './actionCreators/userActions';
+import fetchInstruments from './actionCreators/instrumentActions';
+import fetchBassGuitars from './actionCreators/bassGuitarActions';
+import fetchGuitars from './actionCreators/guitarActions';
+import fetchDrumkits from './actionCreators/drumkitActions';
+import fetchSnares from './actionCreators/snareActions';
+import fetchCymbals from './actionCreators/cymbalActions';
+
 function App() {
+  const dispatch = useDispatch();
+  const { profileType } = useSelector(state => state.users);
+
+  useEffect(() => {
+    dispatch(checkUser());
+    dispatch(fetchInstruments());
+    dispatch(fetchGuitars());
+    dispatch(fetchBassGuitars());
+    dispatch(fetchDrumkits());
+    dispatch(fetchSnares());
+    dispatch(fetchCymbals());
+  }, [dispatch]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {profileType === 'Admin' ? <AdminRoutes /> : <RouteFile />}
     </div>
   );
 }

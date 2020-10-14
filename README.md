@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React & Redux - Front-end / eMusic Store
 
-## Available Scripts
+In this project, you can see the front-end side of my application using React & Redux. There are validations when creating a new user. Also, an admin user exists who is able to see some extra links in the navbar, providing him/her the ability to create new instruments. As a guest user without an account, you can see visit every page and see the instruments. Users who have an account thoug, they have the option to pick their favorite instruments and see them as favorites next time they log in. There are 5 different categories of instruments saved in the API and a generic link in the navbar showing all the instruments stored in the API. Every category has its own individual url in which you can see more information about the each instrument. I'm using Framer Motion package for animating elements on my application. For the images, I'm using Firebase for storing them. Below, you can find the link to the back-end Rails API repository. The Readme file there has details about the back-end project.
 
-In the project directory, you can run:
+This repository is used for the front-end part of my application.
 
-### `yarn start`
+![Landing Page](src/assets/mainpage.png)
+![Homepage](src/assets/homepage.png)
+![Instrument Page](src/assets/instrument_info.png)
+![Sign Up](src/assets/sign_up.png)
+![Redux State Img](src/assets/redux_state.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# BUILD WITH
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- ReactJS
+- Redux
+- React-Redux
+- Firebase
+- Tailwind
+- React Hooks
+- Redux/Toolkit
+- Axios
+- Formik
+- Yup
+- Chokidar-cli
+- Framer Motion
+- Npm-Run-All
+- React/Icons
+- React Router Dom
+- Uuid
+- Prettier
+- Eslint
 
-### `yarn test`
+# Back-End Rails API
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[GitHub Repo](https://github.com/mariosknl/music_store_api)
 
-### `yarn build`
+# Live Version
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Live Link](https://emusicstore.netlify.app/)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+# AUTHOR
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Github: [@mariosknl](https://github.com/mariosknl)
+- Twitter: [@mariosknl](https://twitter.com/MariosKnl)
+- Linkedln: [marios-kanellopoulos](https://www.linkedin.com/in/marios-kanellopoulos)
+- Portfolio: [marios-kanellopoulos](https://marioskanellopoulos.com/)
 
-### `yarn eject`
+# Show your support
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Give ⭐️ if you like this project!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Acknowledgments
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Microverse
+- [Expedito Andrade](https://github.com/expjazz)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 🤝 Contributing
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Contributions, issues, and feature requests are welcome!
+Feel free to check the issues page.
