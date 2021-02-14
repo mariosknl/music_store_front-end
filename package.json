@@ -59,6 +59,6 @@
     "stylelint": "13.10.0",
     "stylelint-config-standard": "20.0.0",
     "stylelint-csstree-validator": "1.9.0",
-    "stylelint-scss": "3.18.0"
+    "stylelint-scss": "3.19.0"
   }
 }
