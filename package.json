@@ -22,7 +22,7 @@
     "react-scripts": "4.0.2",
     "tailwindcss": "1.9.6",
     "uuid": "8.3.2",
-    "yup": "0.29.3"
+    "yup": "0.32.8"
   },
   "scripts": {
     "build:tailwind": "tailwind build src/tailwind.css -o src/tailwind.output.css",
