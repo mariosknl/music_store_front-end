@@ -21,7 +21,7 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.2",
     "uuid": "8.3.2",
-    "yup": "0.32.8"
+    "yup": "0.32.9"
   },
   "scripts": {
     "build:tailwind": "tailwind build src/tailwind.css -o src/tailwind.output.css",
